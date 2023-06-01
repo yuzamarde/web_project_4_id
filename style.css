@@ -12,6 +12,7 @@ h1, h2, p, a{
     color: #ffffff;
 }
 
+/* header */
 .header {
     display: flex;
     align-items: center;
@@ -27,6 +28,7 @@ h1, h2, p, a{
     width: 150px;
 }
   
+/* page */
 .page {
     min-width: 360px;
     /* we don't know how to make mobile versions of websites yet, */
@@ -51,6 +53,8 @@ h1, h2, p, a{
     max-width: 70%;
 }
 
+
+/* profile */
 .profile {
     display: grid;
     grid-template-columns: 25% 60% auto;
@@ -92,6 +96,50 @@ h1, h2, p, a{
     width: 150px;
     height: 50px;
 }
+
+
+/* element */
+.elements {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    box-sizing: border-box;
+    grid-gap: 30px;
+}
+
+.elements__element {
+    background: #FFFFFF;
+    border-radius: 20px;
+}
+
+.element__image {
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.element__group{
+    display: flex;
+    flex-direction: row;
+    row-gap: 20px;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.element__title{
+    color: #000000;
+}
+
+.element__button{
+    background: url(./images/love.svg) center no-repeat;
+    color: #000000;
+    width: fit-content;
+    width: 50px;
+}
+
+
+
+
 
 
 
