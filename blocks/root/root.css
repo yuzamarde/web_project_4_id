@@ -1,0 +1,30 @@
+.page {
+  min-width: 360px;
+  /* we don't know how to make mobile versions of websites yet, */
+  /* so here we've set a minimum page width */
+  display: grid;
+  grid-column: auto;
+  gap: 100px;
+  flex-wrap: wrap;
+  /* here we've set a maximum page width */
+  /* this ensures that all content is centered on screens wider than 1600px */
+  font-family: "Inter", 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  align-items: center;
+  background: #000000;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+  
+}
