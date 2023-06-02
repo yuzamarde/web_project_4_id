@@ -163,7 +163,7 @@ h1, h2, p, a{
 }
 
 .element__button{
-    background: url(./images/love.svg) center no-repeat;
+    /* background: url(./images/love.svg) center no-repeat; */
     color: #000000;
     width: 50px;
     cursor: pointer;
@@ -269,4 +269,25 @@ h1, h2, p, a{
     border: none;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.form__submit-button:hover {
+    opacity: 0.5;
+}
+
+
+.element__button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #595959;
+}
+
+.element__button:hover {
+    text-decoration: 50px;
+    opacity: 0.5;
+}
+    
+.material-icons-outlined {
+    font-size: 30px;
 }
