@@ -57,8 +57,9 @@ h1, h2, p, a{
 }
 
 .profile__profile-info  {
-    display: flex;
+    display: grid;
     gap: 20px;
+    grid-template-columns: 60% auto;
 }
 
 .profile__profile-info_title {
@@ -66,6 +67,7 @@ h1, h2, p, a{
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
+    margin: 0px;
 }
 
 .profile__profile-info_subtitle{
@@ -73,6 +75,7 @@ h1, h2, p, a{
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    margin: 0px;
 }
 
 .profile__profile-info_edit-btn {
@@ -183,7 +186,7 @@ h1, h2, p, a{
 
 
 /* form */
-.form {
+/* .form {
     display: none;
     position: fixed;
     top: 0;
@@ -192,22 +195,17 @@ h1, h2, p, a{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-}
+} */
   
-.form__open {
-    border-radius: 10px;
-    background-color: #fff;
-    width: 375px;
-    height: 330px;
+.form {
+    width: 100%;
+    height: 100%;
     position: absolute;
+    background-color: gray;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px 50px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: none;
 }
  
 .form__edit-profil {
@@ -229,6 +227,24 @@ h1, h2, p, a{
     gap: 20px;
 }
 
+.form-active {
+    display: block;
+    position: fixed;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 375px;
+    height: 330px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .form__close {
     position: absolute;
     top: -40px;
@@ -238,6 +254,7 @@ h1, h2, p, a{
     font-weight: 300;
     font-size: 64px;
     line-height: 29px;
+    background: none;
 }
   
 .form__field-1 {
