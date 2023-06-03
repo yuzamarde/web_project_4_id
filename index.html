@@ -17,13 +17,11 @@
   <main class="page">
     <section class="profile">
         <img src="./images/image.jpg" class="profile__image" alt="profile">
-        <div>
-            <div class="profile__profile-info">
-                <h1 class="profile__profile-info_title" id="profile__profile-info_title">Jacques Cousteau </h1>
-                <button class="profile__profile-info_edit-btn" onclick="openForm()"></button>
-            </div>
-            <p class="profile__profile-info_subtitle" id="profile__profile-info_subtitle">Penjelajah</p>
-        </div>
+          <div class="profile__profile-info">
+              <h1 class="profile__profile-info_title" id="profile__profile-info_title">Jacques Cousteau </h1>
+              <button class="profile__profile-info_edit-btn" onclick="openForm()"></button>
+              <p class="profile__profile-info_subtitle" id="profile__profile-info_subtitle">Penjelajah</p>
+          </div>
         <button class="profile__profile-info_add-btn" href="#">+</button>
     </section>
     <section class="elements">
@@ -70,17 +68,14 @@
         </div>
       </div>
     </section>
-    <div id="form" class="form">
-      <div class="form__open">
-        <span class="form__close" onclick="closeForm()">&times;</span>
-        <h2 class="form__edit-profil">Edit Name</h2>
-        <form class="form__input" onsubmit="submitForm(event)">
-          <input type="text" class="form__field-1" placeholder="Jacques Cousteau" value="Jacques Cousteau" required>
-          <input type="text" class="form__field-2" placeholder="Penjelajah"  value="Penjelajah" required>
-          <input class="form__submit-button" type="submit" value="Save">
-        </form>
-      </div>
-    </div>
+    <section class="form">
+      <button class="form__close"><img src="./images/Close.svg"></button>
+      <h2 class="form__edit-profil">Edit Name</h2>
+      <input type="text" class="form__field-1" value="Jacques Cousteau">
+      <input type="text" class="form__field-2" value="Penjelajah">
+      
+      <button class="form__submit-button">save</button>
+    </section>
     <footer class="footer">
       <p class="footer__copyright">© 2023. yuza</p>
     </footer>
