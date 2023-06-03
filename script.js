@@ -1,3 +1,4 @@
+// profile edit
 const tombol = document.querySelector('.profile__profile-info_edit-btn');
 const close = document.querySelector('.edit-form__close');
 const save = document.querySelector('.edit-form__profil-submit-button');
@@ -30,15 +31,16 @@ function foo(selector) {
 foo('.text');
 foo('.subtext');
 
-// Select all elements with the class "element__group"
+
+// love button"
 var btns = document.querySelectorAll(".element__group");
 
-// Iterate over each element
+
 btns.forEach(function(btn) {
-  // Find the icon element within the current element
+
   var icon = btn.querySelector(".element__button");
 
-  // Attach the click event handler to the current element
+
   btn.onclick = function() {
     if (icon.classList.contains("element__button")) {
       icon.classList.replace("element__button", "element__button-love");
