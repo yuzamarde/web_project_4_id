@@ -152,6 +152,7 @@ h1, h2, p, a{
     margin-left: 20px;
     margin-right: 20px;
     align-items: center;
+    
 }
 
 .element__title{
@@ -168,9 +169,19 @@ h1, h2, p, a{
 .element__button{
     background: url(./images/love.svg) center no-repeat;
     color: #000000;
-    width: 50px;
+    width: 25px;
     cursor: pointer;
-    height: 100%;
+    height: 20px;
+    border: 0px solid black;
+}
+
+.element__button-love{
+    background: url(./images/Union.svg) center no-repeat;
+    color: #000000;
+    width: 25px;
+    cursor: pointer;
+    height: 20px;
+    border: 0px solid black;
 }
 
 .element__button:hover {
@@ -186,18 +197,8 @@ h1, h2, p, a{
 
 
 /* form */
-/* .form {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-} */
   
-.form {
+.edit-form {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -206,16 +207,47 @@ h1, h2, p, a{
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.edit-form__overlay {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 330px;
+    margin: auto auto auto auto;
+}
+.form-active {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    padding: 20px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.edit-form__profil {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 10px;
+    display: grid;
+    gap: 20px;
 }
  
-.form__edit-profil {
+.edit-form__profil-title {
     color: #000000;
     display: flex;
     width: 100%;
     font-weight: 900;
     font-size: 35px;
     line-height: 29px;
-    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 30px;
 }
 
 .form__input {
@@ -227,37 +259,15 @@ h1, h2, p, a{
     gap: 20px;
 }
 
-.form-active {
-    display: block;
-    position: fixed;
-    border-radius: 10px;
-    background-color: #fff;
-    width: 375px;
-    height: 330px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px 50px;
-    text-align: center;
+.edit-form__close {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.form__close {
-    position: absolute;
-    top: -40px;
-    right: -40px;
     cursor: pointer;
-    color: #ffffff;
-    font-weight: 300;
-    font-size: 64px;
-    line-height: 29px;
     background: none;
+    justify-content: end;
+    margin-right: -40px;
 }
   
-.form__field-1 {
+.edit-form__profil-field-1 {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -268,7 +278,7 @@ h1, h2, p, a{
     border-bottom: 1px solid #454545;
 }
 
-.form__field-2 {
+.edit-form__profil-field-2 {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -279,15 +289,16 @@ h1, h2, p, a{
     border-bottom: 1px solid #454545;
 }
   
-.form__submit-button {
+.edit-form__profil-submit-button {
     background-color: #000000;
     color: white;
+    width: 100%;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     margin-top: 20px;
 }
 
-.form__submit-button:hover {
+.edit-form__profil-submit-button:hover {
     opacity: 0.5;
 }

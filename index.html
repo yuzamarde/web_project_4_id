@@ -18,9 +18,9 @@
     <section class="profile">
         <img src="./images/image.jpg" class="profile__image" alt="profile">
           <div class="profile__profile-info">
-              <h1 class="profile__profile-info_title" id="profile__profile-info_title">Jacques Cousteau </h1>
-              <button class="profile__profile-info_edit-btn" onclick="openForm()"></button>
-              <p class="profile__profile-info_subtitle" id="profile__profile-info_subtitle">Penjelajah</p>
+              <h1 class="profile__profile-info_title">Jacques Cousteau </h1>
+              <button class="profile__profile-info_edit-btn"></button>
+              <p class="profile__profile-info_subtitle">Penjelajah</p>
           </div>
         <button class="profile__profile-info_add-btn" href="#">+</button>
     </section>
@@ -68,13 +68,16 @@
         </div>
       </div>
     </section>
-    <section class="form">
-      <button class="form__close"><img src="./images/Close.svg"></button>
-      <h2 class="form__edit-profil">Edit Name</h2>
-      <input type="text" class="form__field-1" value="Jacques Cousteau">
-      <input type="text" class="form__field-2" value="Penjelajah">
-      
-      <button class="form__submit-button">save</button>
+    <section class="edit-form">
+      <div class="edit-form__overlay">
+        <button class="edit-form__close"><img src="./images/Close.svg"></button>
+        <div class="edit-form__profil">
+          <h2 class="edit-form__profil-title">Edit Name</h2>
+          <input type="text" class="edit-form__profil-field-1" value="Jacques Cousteau">
+          <input type="text" class="edit-form__profil-field-2" value="Penjelajah">
+          <button class="edit-form__profil-submit-button">Simpan</button>
+        </div>
+      </div>
     </section>
     <footer class="footer">
       <p class="footer__copyright">© 2023. yuza</p>
