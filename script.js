@@ -9,17 +9,17 @@ const text = document.querySelector('.profile__profile-info_title');
 const subtext = document.querySelector('.profile__profile-info_subtitle');
 
 tombol.addEventListener('click', () => {
-    box.classList.add('form-active');
+    box.classList.add('edit-form__form-active');
 });
 
 save.addEventListener('click', () => {
     text.innerHTML = input.value;
     subtext.innerHTML = subtextInput.value;
-    box.classList.remove('form-active');
+    box.classList.remove('edit-form__form-active');
 });
 
 close.addEventListener('click', () => {
-    box.classList.remove('form-active');
+    box.classList.remove('edit-form__form-active');
 });
 
 function foo(selector) {

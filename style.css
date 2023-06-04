@@ -208,7 +208,7 @@ h1, h2, p, a{
     height: fit-content;
     margin: auto auto auto auto;
 }
-.form-active {
+.edit-form__form-active {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
