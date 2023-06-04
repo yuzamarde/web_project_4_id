@@ -1,0 +1,77 @@
+.edit-form__profil {
+    background-color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 10px;
+    display: grid;
+    gap: 20px;
+}
+ 
+.edit-form__profil-title {
+    color: #000000;
+    display: flex;
+    width: 100%;
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 29px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.edit-form__profil-field-1 {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+    border: none;
+    border-bottom: 1px solid #454545;
+}
+
+.edit-form__profil-field-2 {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #454545;
+}
+  
+.edit-form__profil-submit-button {
+    background-color: #000000;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.edit-form__profil-submit-button:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 320px) {
+    .edit-form__profil {
+        padding: 20px 20px;
+    }
+    .edit-form__profil-title {
+        font-size: 18px;
+        padding-bottom: 0px;
+    }
+
+    .edit-form__profil-field-1 {
+        font-size: 13px;
+    }
+
+    .edit-form__profil-field-2 {
+        font-size: 13px;
+    }
+}

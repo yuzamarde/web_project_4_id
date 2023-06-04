@@ -1,10 +1,10 @@
-input, button {
+/* input, button {
     border: none;
   }
 
 h1, h2, p, a{
     color: #ffffff;
-}
+} */
 
 /* header */
 .header {
@@ -189,7 +189,7 @@ h1, h2, p, a{
 
 /* form */
   
-.edit-form {
+/* .edit-form {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -199,16 +199,16 @@ h1, h2, p, a{
     transform: translate(-50%, -50%);
     display: none;
     width: 100%;
-}
+} */
 
-.edit-form__overlay {
+/* .edit-form__overlay {
     display: flex;
     flex-direction: column;
     width: 500px;
     height: fit-content;
     margin: auto auto auto auto;
-}
-.form-active {
+} */
+/* .form-active {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -219,9 +219,9 @@ h1, h2, p, a{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
+} */
 
-.edit-form__profil {
+/* .edit-form__profil {
     background-color: #ffffff;
     padding: 60px 40px;
     border-radius: 10px;
@@ -238,7 +238,7 @@ h1, h2, p, a{
     line-height: 29px;
     margin-top: 0px;
     margin-bottom: 30px;
-}
+} */
 
 .form__input {
     display: flex;
@@ -249,20 +249,20 @@ h1, h2, p, a{
     gap: 20px;
 }
 
-.edit-form__close {
+/* .edit-form__close {
     display: flex;
     cursor: pointer;
     background: none;
     justify-content: end;
     margin-right: -30px;
-}
+} */
 
-.edit-form__close-svg {
+/* .edit-form__close-svg {
     width: 20px;
     max-height: 20px;
-}
+} */
   
-.edit-form__profil-field-1 {
+/* .edit-form__profil-field-1 {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -296,7 +296,7 @@ h1, h2, p, a{
 
 .edit-form__profil-submit-button:hover {
     opacity: 0.5;
-}
+} */
 
 
 
@@ -344,9 +344,9 @@ h1, h2, p, a{
     }
 
     /* .edit-form */
-    .edit-form__overlay {
+    /* .edit-form__overlay {
         width: 400px;
-    }
+    } */
 }
    
 @media screen and (max-width: 320px) {
@@ -394,21 +394,21 @@ h1, h2, p, a{
     }
 
     /* .edit-form */
-    .edit-form__overlay {
+    /* .edit-form__overlay {
         width: 270px;
-    }
+    } */
 
-    .edit-form__profil {
+    /* .edit-form__profil {
         padding: 20px 20px;
-    }
+    } */
 
-    .edit-form__close {
+    /* .edit-form__close {
         margin-right: 0px;
         margin-bottom: 10px;
         padding: 0px;
-    }
+    } */
     
-    .edit-form__profil-title {
+    /* .edit-form__profil-title {
         font-size: 18px;
         padding-bottom: 0px;
     }
@@ -419,6 +419,6 @@ h1, h2, p, a{
 
     .edit-form__profil-field-2 {
         font-size: 13px;
-    }
+    } */
     
 }

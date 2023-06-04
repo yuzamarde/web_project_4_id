@@ -1,0 +1,9 @@
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 70px;
+    background: #000000;
+    min-width: 320px;
+}
