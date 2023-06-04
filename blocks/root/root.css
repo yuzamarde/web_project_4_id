@@ -1,5 +1,5 @@
 .page {
-  min-width: 360px;
+  min-width: 320px;
   /* we don't know how to make mobile versions of websites yet, */
   /* so here we've set a minimum page width */
   display: grid;
@@ -26,5 +26,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  
+  .page {
+    gap: 50px;
+  }
 }
