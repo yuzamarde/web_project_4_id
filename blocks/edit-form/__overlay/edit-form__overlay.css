@@ -1,4 +1,4 @@
-.edit-form__overlay {
+.popup__overlay {
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -6,13 +6,13 @@
     margin: auto auto auto auto;
 }
 @media screen and (max-width: 768px) {
-    .edit-form__overlay {
+    .popup__overlay {
         width: 400px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .edit-form__overlay {
+    .popup__overlay {
         width: 270px;
     }
 }

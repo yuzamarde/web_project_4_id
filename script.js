@@ -1,38 +1,32 @@
 // profile edit
-const tombol = document.querySelector('.profile__profile-info_edit-btn');
-const close = document.querySelector('.edit-form__close');
-const save = document.querySelector('.edit-form__profil-submit-button');
-const box = document.querySelector('.edit-form');
-const input = document.querySelector('.edit-form__profil-field-1');
-const subtextInput = document.querySelector('.edit-form__profil-field-2');
-const text = document.querySelector('.profile__profile-info_title');
-const subtext = document.querySelector('.profile__profile-info_subtitle');
+const tombol = document.querySelector('.profile__edit-btn');
+const close = document.querySelector('.popup__close');
+const save = document.querySelector('.popup__profile-submit');
+const box = document.querySelector('.popup');
+const input = document.querySelector('.popup__profile-name');
+const subtextInput = document.querySelector('.popup__profile-work');
+const text = document.querySelector('.profile__name');
+const subtext = document.querySelector('.profile__work');
 
 tombol.addEventListener('click', () => {
-    box.classList.add('edit-form-active');
+  box.classList.add('popup-active');
+  input.value = text.textContent;
+  subtextInput.value = subtext.textContent;
 });
 
-save.addEventListener('click', () => {
+save.addEventListener('click', (event) => {
+    event.preventDefault();
     text.innerHTML = input.value;
-    subtext.innerHTML = subtextInput.value;
-    box.classList.remove('edit-form-active');
+    subtext.textContent = subtextInput.value;
+    box.classList.remove('popup-active');
 });
 
 close.addEventListener('click', () => {
-    box.classList.remove('edit-form-active');
+    box.classList.remove('popup-active');
 });
 
-function foo(selector) {
-    const element = document.querySelector(selector);
-    if (element) {
-        console.log(element.innerHTML);
-    }
-}
-foo('.text');
-foo('.subtext');
-
-
-// love button"
+// class elements
+// element__button"
 var btns = document.querySelectorAll(".element__group");
 
 
