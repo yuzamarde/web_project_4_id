@@ -1,0 +1,17 @@
+.popup__profile{
+    background-color: #ffffff;
+    padding: 60px 40px;
+    border-radius: 10px;
+    display: grid;
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 320px) {
+    .popup__profile {
+        padding: 20px 20px;
+    }
+}
