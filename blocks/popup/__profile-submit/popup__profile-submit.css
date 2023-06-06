@@ -1,0 +1,20 @@
+.popup__profile-submit {
+    background-color: #000000;
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.popup__profile-submit:hover {
+    opacity: 0.5;
+}
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}

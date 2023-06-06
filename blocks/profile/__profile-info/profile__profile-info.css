@@ -4,71 +4,9 @@
     grid-template-columns: auto auto;
 }
 
-.profile__name {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 48px;
-    color: #ffffff;
-    margin: 0px;
-    
-}
-
-.profile__work{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0px;
-    color: #ffffff;
-}
-
-.profile__edit-btn {
-    background: url(../../../images/edit.svg) center no-repeat;
-    color: #d3d3d3;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border: 2px solid rgb(255, 255, 255);
-    margin-top: auto;
-    margin-bottom: auto;
-    cursor: pointer;
-}
-
-.profile__edit-btn:hover {
-    opacity: 0.6;
-    transition: 0.4s;
-  }
-
-.profile__add-btn{
-    background: url(../../../images/plus.svg) center no-repeat;
-    border: 2px solid rgb(255, 255, 255);
-    color: #d3d3d3;
-    width: 100%;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    cursor: pointer;
-}
-
-.profile__add-btn:hover {
-    opacity: 0.6;
-    transition: 0.4s;
-}
-
 @media screen and (max-width: 768px) {
-    .profile__name {
-        font-size: 25px;
-        line-height: 33px;
-    }
-
     .profile__profile-info {
         grid-template-columns: 70% auto;
-    }
-
-    .profile__work {
-        font-size: 14px;
     }
 }
 
@@ -78,27 +16,5 @@
         grid-template-columns: auto auto;
         gap: 5px;
         width: 100%;
-    }
-
-    .profile__name {
-        display: flex;
-        justify-content: end;
-        font-size: 17px;
-        text-align: center;
-        width: fit-content;
-    }
-
-    .profile__work {
-        font-size: 14px;
-        grid-column: 1 / span 2;
-        justify-content: center;
-        display: flex;
-    }
-
-    .profile__edit-btn {
-        margin-bottom: 10px;
-        background-size: 7px 8px;
-        width: 15px;
-        max-height: 15px;
     }
 }
