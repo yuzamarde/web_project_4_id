@@ -37,9 +37,9 @@ btns.forEach(function(btn) {
 
   btn.onclick = function() {
     if (icon.classList.contains("element__button")) {
-      icon.classList.replace("element__button", "element__button-love");
+      icon.classList.replace("element__button", "element__button-active");
     } else {
-      icon.classList.replace("element__button-love", "element__button");
+      icon.classList.replace("element__button-active", "element__button");
     }
   };
 });
