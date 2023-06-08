@@ -1,5 +1,5 @@
 .popup__overlay {
-    display: flex;
+    display: grid;
     flex-direction: column;
     width: 500px;
     height: fit-content;
@@ -7,7 +7,7 @@
 }
 @media screen and (max-width: 768px) {
     .popup__overlay {
-        width: 400px;
+        width: 60%;
     }
 }
 
