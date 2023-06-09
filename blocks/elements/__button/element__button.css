@@ -1,7 +1,7 @@
 .element__button{
     background: url(../../../images/love.svg) center no-repeat;
     color: #000000;
-    width: 25px;
+    width: 35px;
     cursor: pointer;
     height: 20px;
     border: 0px solid black;
