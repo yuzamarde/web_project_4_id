@@ -9,7 +9,7 @@
     transform: translate(-50%, -50%);
 }
 
-.popup-active {
+.popup_active {
     padding: 20px 50px;
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 // profile edit
 const tombol = document.querySelector('.profile__edit-btn');
 const close = document.querySelector('.popup__close');
-const save = document.querySelector('.popup__profile-submit');
+const submit = document.querySelector('.popup__profile-submit');
 const box = document.querySelector('.popup');
 const input = document.querySelector('.popup__profile-name');
 const subtextInput = document.querySelector('.popup__profile-work');
@@ -9,20 +9,21 @@ const text = document.querySelector('.profile__name');
 const subtext = document.querySelector('.profile__work');
 
 tombol.addEventListener('click', () => {
-  box.classList.add('popup-active');
+  box.classList.add('popup_active');
   input.value = text.textContent;
   subtextInput.value = subtext.textContent;
 });
 
-save.addEventListener('click', (event) => {
-    event.preventDefault();
-    text.innerHTML = input.value;
-    subtext.textContent = subtextInput.value;
-    box.classList.remove('popup-active');
+submit.addEventListener('click', (event) => {
+  event.preventDefault();
+  text.textContent = input.value;
+  subtext.textContent = subtextInput.value;
+  box.classList.remove('popup_active');
 });
 
+
 close.addEventListener('click', () => {
-    box.classList.remove('popup-active');
+    box.classList.remove('popup_active');
 });
 
 // class elements
