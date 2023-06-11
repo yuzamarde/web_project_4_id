@@ -1,12 +1,12 @@
 // profile edit
 const tombol = document.querySelector('.profile__edit-btn');
 const close = document.querySelector('.popup__close');
-const submit = document.querySelector('.popup__profile-submit');
 const box = document.querySelector('.popup');
 const input = document.querySelector('.popup__profile-name');
 const subtextInput = document.querySelector('.popup__profile-work');
 const text = document.querySelector('.profile__name');
 const subtext = document.querySelector('.profile__work');
+const form = document.querySelector('.popup__form');
 
 tombol.addEventListener('click', () => {
   box.classList.add('popup_active');
@@ -14,16 +14,15 @@ tombol.addEventListener('click', () => {
   subtextInput.value = subtext.textContent;
 });
 
-submit.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   text.textContent = input.value;
   subtext.textContent = subtextInput.value;
   box.classList.remove('popup_active');
 });
 
-
 close.addEventListener('click', () => {
-    box.classList.remove('popup_active');
+  box.classList.remove('popup_active');
 });
 
 // class elements
