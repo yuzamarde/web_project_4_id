@@ -24,22 +24,3 @@ form.addEventListener('submit', (event) => {
 close.addEventListener('click', () => {
   box.classList.remove('popup_active');
 });
-
-// class elements
-// element__button"
-var btns = document.querySelectorAll(".element__group");
-
-
-btns.forEach(function(btn) {
-
-  var icon = btn.querySelector(".element__button");
-
-
-  btn.onclick = function() {
-    if (icon.classList.contains("element__button")) {
-      icon.classList.replace("element__button", "element__button-active");
-    } else {
-      icon.classList.replace("element__button-active", "element__button");
-    }
-  };
-});
