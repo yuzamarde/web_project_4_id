@@ -1,0 +1,18 @@
+.popup-add__overlay {
+    display: grid;
+    flex-direction: column;
+    width: 500px;
+    height: fit-content;
+    margin: auto auto auto auto;
+}
+@media screen and (max-width: 768px) {
+    .popup-add__overlay {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup-add__overlay {
+        width: 270px;
+    }
+}

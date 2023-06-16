@@ -5,6 +5,7 @@
     cursor: pointer;
     height: 20px;
     border: 0px solid black;
+    transition: 0.3s;
 }
 
 .element__button-active{
@@ -14,6 +15,7 @@
     cursor: pointer;
     height: 20px;
     border: 0px solid black;
+    transition: 0.3s;
 }
 
 .element__button:hover {

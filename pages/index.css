@@ -38,6 +38,16 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__form/popup__form.css);
 
+/* popup-add */
+@import url(../blocks/popup-add/popup-add.css);
+@import url(../blocks/popup-add/__close/popup-add__close.css);
+@import url(../blocks/popup-add/__form/popup-add__form.css);
+@import url(../blocks/popup-add/__input/popup-add__input.css);
+@import url(../blocks/popup-add/__overlay/popup-add__overlay.css);
+@import url(../blocks/popup-add/__profile-submit/popup-add__profile-submit.css);
+@import url(../blocks/popup-add/__profile-title/popup-add__profile-title.css);
+@import url(../blocks/popup-add/__form/popup-add__form.css);
+
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
