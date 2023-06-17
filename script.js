@@ -29,34 +29,6 @@ close.addEventListener('click', () => {
 
 
 
-// portfolio item add
-const page = document.querySelector(".page");
-const portfolioAddButton = page.querySelector('.profile__add-btn');
-const portfolioCloseButton = page.querySelector('.popup-add__close');
-const portfolioPopupBox = page.querySelector('.popupadd');
-const portfolioNameInput = page.querySelector('input[name="popup-add__input-name"]');
-const portfolioWorkInput = page.querySelector('input[name="popup-add__input-work"]');
-const portfolioNameText = page.querySelector('.popup-add__name');
-const portfolioWorkText = page.querySelector('.popup-add__work');
-const portfolioForm = page.querySelector('.popupadd__form');
-
-portfolioAddButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.add('popupadd_active');
-  portfolioNameInput.value = '';
-  portfolioWorkInput.value = '';
-});
-
-// portfolioForm.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   portfolioNameText.textContent = portfolioNameInput.value;
-//   portfolioWorkText.textContent = portfolioWorkInput.value;
-//   portfolioPopupBox.classList.remove('popupadd_active');
-// });
-
-portfolioCloseButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.remove('popupadd_active');
-});
-
 // templete
 const template = document.querySelector('.elements');
 const container = document.querySelector('.container');
@@ -93,12 +65,12 @@ function selectPicture() {
   const pictureName = this.parentElement.querySelector('.element__title');
   console.log(pictureName);
   // ketika button di click warna card jadi abu abu
-  this.parentElement.classList.add('element--active');
+  // this.parentElement.classList.add('element__button-active');
+  
 }
 
-function activeCard() {
-  console. log(this)
-this.classList.add('element--active');
+function activeLike(evt) {
+  evt.target.classList.toggle('element__button-active');
 }
 
 for (let x = 0; x < 6; x++) {
@@ -114,10 +86,75 @@ for (let x = 0; x < 6; x++) {
   cardTitle.innerHTML = initialCards[x].name;
   // pasang event listener
   cardButton.addEventListener('click', selectPicture);
-  card.addEventListener('click', activeCard);
+  cardButton.addEventListener('click', activeLike);
   // memindahkan tempalte ke container
   container.appendChild(clone);
 }
+
+
+// portfolio item add
+const page = document.querySelector(".page");
+const portfolioAddButton = document.querySelector('.profile__add-btn');
+const portfolioCloseButton = document.querySelector('.popup-add__close');
+const portfolioPopupBox = document.querySelector('.popupadd');
+const portfolioImage = document.querySelector('input[name="popup-add__input-url"]');
+const portfolioTitle = document.querySelector('input[name="popup-add__input-name"]');
+const portfolioNameText = document.querySelector('.popup-add__name');
+const portfolioWorkText = document.querySelector('.popup-add__work');
+const portfolioForm = document.querySelector('.popupadd__form');
+
+
+portfolioAddButton.addEventListener('click', () => {
+  portfolioPopupBox.classList.add('popupadd_active');
+});
+const errMsg = document.querySelector('.error-msg');
+
+portfolioForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+
+  console.log(
+      portfolioImage.value,
+      portfolioTitle.value,
+  )
+
+  // logic
+  if (portfolioImage.value.trim() === '') {
+      errMsg.classList.add('error-msg--active');
+      errMsg.textContent = 'Image Url harus diisi!';
+      return false;
+  }
+  if (portfolioTitle.value.trim() === '') {
+      errMsg.classList.add('error-msg--active');
+      errMsg.textContent = 'Title harus diisi!';
+      return false;
+  }
+  portfolioPopupBox.classList.remove('popupadd_active');
+  
+  const clone = template.content.cloneNode(true);
+
+  const contentImage = clone.querySelector('.element__image');
+  const contentTitle = clone.querySelector('.element__title');
+
+  // memamasukkan nilai ke title
+  contentImage.src = portfolioImage.value;
+  contentTitle.textContent = portfolioTitle.value;
+
+  // dorong template ke container
+  container.appendChild(clone);
+
+
+  // remove class
+  errMsg.classList.remove('error-msg--active')
+  // clean up value
+  portfolioImage.value = '';
+  portfolioTitle.value = '';
+});
+
+portfolioCloseButton.addEventListener('click', () => {
+  portfolioPopupBox.classList.remove('popupadd_active');
+});
+
 
 
 
@@ -131,19 +168,19 @@ for (let x = 0; x < 6; x++) {
 
 // class elements
 // element__button"
-var btns = document.querySelectorAll(".element__group");
+// var btns = document.querySelectorAll(".element__group");
 
 
-btns.forEach(function(btn) {
+// btns.forEach(function(btn) {
 
-  var icon = btn.querySelector(".element__button");
+//   var icon = btn.querySelector(".element__button");
 
 
-  btn.onclick = function() {
-    if (icon.classList.contains("element__button")) {
-      icon.classList.replace("element__button", "element__button-active");
-    } else {
-      icon.classList.replace("element__button-active", "element__button");
-    }
-  };
-});
+//   btn.onclick = function() {
+//     if (icon.classList.contains("element__button")) {
+//       icon.classList.replace("element__button", "element__button-active");
+//     } else {
+//       icon.classList.replace("element__button-active", "element__button");
+//     }
+//   };
+// });
