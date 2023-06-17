@@ -57,6 +57,71 @@ portfolioCloseButton.addEventListener('click', () => {
   portfolioPopupBox.classList.remove('popupadd_active');
 });
 
+// templete
+const template = document.querySelector('.elements');
+const container = document.querySelector('.container');
+const initialCards = [
+  {
+    name: "Lembah Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
+  },
+  {
+    name: "Danau Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
+  },
+  {
+    name: "Pegunungan Gundul",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
+  },
+  {
+    name: "Gunung Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
+  },
+  {
+    name: "Taman Nasional Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
+  }
+];
+
+function selectPicture() {
+  // console. log('click')
+  console.log(this.parentElement);
+  const pictureName = this.parentElement.querySelector('.element__title');
+  console.log(pictureName);
+  // ketika button di click warna card jadi abu abu
+  this.parentElement.classList.add('element--active');
+}
+
+function activeCard() {
+  console. log(this)
+this.classList.add('element--active');
+}
+
+for (let x = 0; x < 6; x++) {
+  const clone = template.content.cloneNode(true);
+  // console. log(clone)
+  // template diinject ke dalam container
+  const cardImage = clone.querySelector('.element__image');
+  const cardTitle = clone.querySelector('.element__title');
+  const cardButton = clone.querySelector('.element__button');
+  const card = clone.querySelector('.element');
+  //inject initialCards
+  cardImage.src = initialCards[x].link;
+  cardTitle.innerHTML = initialCards[x].name;
+  // pasang event listener
+  cardButton.addEventListener('click', selectPicture);
+  card.addEventListener('click', activeCard);
+  // memindahkan tempalte ke container
+  container.appendChild(clone);
+}
+
+
+
+
 
 
 
