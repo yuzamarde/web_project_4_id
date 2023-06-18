@@ -1,4 +1,4 @@
-.popupadd {
+.popup_add {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -9,9 +9,16 @@
     transform: translate(-50%, -50%);
 }
 
-.popupadd_active {
+.popup_add_active {
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
 }

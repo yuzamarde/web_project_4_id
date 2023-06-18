@@ -1,0 +1,17 @@
+.popup_image__close {
+    display: flex;
+    cursor: pointer;
+    background: none;
+    justify-content: end;
+    margin-right: -468px;
+    border: none;
+  }
+@media screen and (max-width: 768px) {
+    .popup_image__close {
+        margin-right: -227px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+}

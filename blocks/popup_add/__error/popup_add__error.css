@@ -1,0 +1,36 @@
+.popup_add__error-img {
+    font-size: 10px;
+    margin: 0;
+    height: 10px;
+    text-align: center;
+    color: red;
+    display: flex;
+}
+.popup_add__error-img--active {
+    display: flex;
+    height: 10px;
+    font-size: 10px;
+    opacity: 1;
+}
+
+.popup_add__error-msg {
+    font-size: 10px;
+    margin: 0;
+    height: 10px;
+    text-align: center;
+    color: red;
+    display: flex;
+}
+.popup_add__error-msg--active {
+    display: flex;
+    height: 10px;
+    font-size: 10px;
+    opacity: 1;
+}
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 320px) {
+
+}
