@@ -108,8 +108,8 @@ portfolioAddButton.addEventListener('click', () => {
   portfolioPopupBox.classList.add('popup_add_active');
 });
 
-const errImg = document.querySelector('.error-img');
-const errMsg = document.querySelector('.error-msg');
+const errImg = document.querySelector('.popup_add__error-img');
+const errMsg = document.querySelector('.popup_add__error-msg');
 
 portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -131,12 +131,12 @@ portfolioForm.addEventListener('submit', function(event) {
   }
 
   if (portfolioImage.value.trim() === '') {
-      errImg.classList.add('error-img--active');
+      errImg.classList.add('popup_add__error-img--active');
       errImg.textContent = 'Image Url harus diisi!';
       return false;
   }
   if (portfolioTitle.value.trim() === '') {
-      errMsg.classList.add('error-msg--active');
+      errMsg.classList.add('popup_add__error-msg--active');
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
@@ -157,8 +157,8 @@ portfolioForm.addEventListener('submit', function(event) {
 
 
   // remove class
-  errMsg.classList.remove('error-msg--active')
-  errImg.classList.remove('error-img--active')
+  errMsg.classList.remove('popup_add__error-msg--active')
+  errImg.classList.remove('popup_add__error-img--active')
   
   // clean up value
   portfolioImage.value = '';
