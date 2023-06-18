@@ -1,6 +1,5 @@
 .popup_image {
     position: fixed;
-    display: flex;
     flex-direction: column;
     padding-top: 50px;
     top: 0;
