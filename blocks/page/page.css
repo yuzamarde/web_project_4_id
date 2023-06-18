@@ -4,7 +4,7 @@
   /* so here we've set a minimum page width */
   display: grid;
   grid-column: auto;
-  gap: 100px;
+  gap: 50px;
   flex-wrap: wrap;
   /* here we've set a maximum page width */
   /* this ensures that all content is centered on screens wider than 1600px */
@@ -17,7 +17,7 @@
   text-rendering: optimizeLegibility;
   align-items: center;
   background: #000000;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 

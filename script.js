@@ -80,7 +80,6 @@ for (let x = 0; x < 6; x++) {
   const cardImage = clone.querySelector('.element__image');
   const cardTitle = clone.querySelector('.element__title');
   const cardButton = clone.querySelector('.element__button');
-  const card = clone.querySelector('.element');
   //inject initialCards
   cardImage.src = initialCards[x].link;
   cardTitle.innerHTML = initialCards[x].name;
@@ -88,25 +87,28 @@ for (let x = 0; x < 6; x++) {
   cardButton.addEventListener('click', selectPicture);
   cardButton.addEventListener('click', activeLike);
   // memindahkan tempalte ke container
-  container.appendChild(clone);
+  const firstElement = container.firstChild;
+  container.insertBefore(clone, firstElement);
 }
 
 
 // portfolio item add
 const page = document.querySelector(".page");
 const portfolioAddButton = document.querySelector('.profile__add-btn');
-const portfolioCloseButton = document.querySelector('.popup-add__close');
-const portfolioPopupBox = document.querySelector('.popupadd');
-const portfolioImage = document.querySelector('input[name="popup-add__input-url"]');
-const portfolioTitle = document.querySelector('input[name="popup-add__input-name"]');
+const portfolioCloseButton = document.querySelector('.popup_add__close');
+const portfolioPopupBox = document.querySelector('.popup_add');
+const portfolioImage = document.querySelector('input[name="popup_add__input-url"]');
+const portfolioTitle = document.querySelector('input[name="popup_add__input-name"]');
 const portfolioNameText = document.querySelector('.popup-add__name');
 const portfolioWorkText = document.querySelector('.popup-add__work');
-const portfolioForm = document.querySelector('.popupadd__form');
+const portfolioForm = document.querySelector('.popup_add__form');
 
 
 portfolioAddButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.add('popupadd_active');
+  portfolioPopupBox.classList.add('popup_add_active');
 });
+
+const errImg = document.querySelector('.error-img');
 const errMsg = document.querySelector('.error-msg');
 
 portfolioForm.addEventListener('submit', function(event) {
@@ -118,10 +120,19 @@ portfolioForm.addEventListener('submit', function(event) {
       portfolioTitle.value,
   )
 
+  errImg.textContent = '';
+  errMsg.textContent = '';
   // logic
+
+  if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
+      errImg.textContent = 'Image Url harus diisi!';
+      errMsg.textContent = 'Title harus diisi!';
+      return false;
+  }
+
   if (portfolioImage.value.trim() === '') {
-      errMsg.classList.add('error-msg--active');
-      errMsg.textContent = 'Image Url harus diisi!';
+      errImg.classList.add('error-img--active');
+      errImg.textContent = 'Image Url harus diisi!';
       return false;
   }
   if (portfolioTitle.value.trim() === '') {
@@ -129,7 +140,7 @@ portfolioForm.addEventListener('submit', function(event) {
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
-  portfolioPopupBox.classList.remove('popupadd_active');
+  portfolioPopupBox.classList.remove('popup_add_active');
   
   const clone = template.content.cloneNode(true);
 
@@ -141,46 +152,56 @@ portfolioForm.addEventListener('submit', function(event) {
   contentTitle.textContent = portfolioTitle.value;
 
   // dorong template ke container
-  container.appendChild(clone);
+  const firstElement = container.firstChild;
+  container.insertBefore(clone, firstElement);
 
 
   // remove class
   errMsg.classList.remove('error-msg--active')
+  errImg.classList.remove('error-img--active')
+  
   // clean up value
   portfolioImage.value = '';
   portfolioTitle.value = '';
 });
 
 portfolioCloseButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.remove('popupadd_active');
+  portfolioPopupBox.classList.remove('popup_add_active');
 });
 
 
+// image popup
+const elements = document.querySelectorAll('.element');
+const popupImage = document.querySelector('.popup_image');
+const popupImageFile = document.querySelector('.popup_image__file');
+const popupImageTitle = document.querySelector('.popup_image__title');
+const popupImageClose = document.querySelector('.popup_image__close');
+
+// Event listener for each element
+elements.forEach(element => {
+  const image = element.querySelector('.element__image');
+  const title = element.querySelector('.element__title');
+
+  image.addEventListener('click', () => {
+    popupImageFile.src = image.src;
+    popupImageTitle.textContent = title.textContent;
+    popupImage.classList.add('popup_image_active');
+  });
+});
+
+// Event listener for closing the popup image
+popupImageClose.addEventListener('click', () => {
+  popupImage.classList.remove('popup_image_active');
+});
 
 
+// delete element
+const deleteButtons = document.querySelectorAll('.element__delete');
 
-
-
-
-
-
-
-
-// class elements
-// element__button"
-// var btns = document.querySelectorAll(".element__group");
-
-
-// btns.forEach(function(btn) {
-
-//   var icon = btn.querySelector(".element__button");
-
-
-//   btn.onclick = function() {
-//     if (icon.classList.contains("element__button")) {
-//       icon.classList.replace("element__button", "element__button-active");
-//     } else {
-//       icon.classList.replace("element__button-active", "element__button");
-//     }
-//   };
-// });
+// Add click event listener to each delete button
+deleteButtons.forEach((deleteButton) => {
+  deleteButton.addEventListener('click', () => {
+    const element = deleteButton.parentElement;
+    element.remove();
+  });
+});
