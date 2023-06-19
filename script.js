@@ -95,21 +95,40 @@ for (let x = 0; x < 6; x++) {
 // portfolio item add
 const page = document.querySelector(".page");
 const portfolioAddButton = document.querySelector('.profile__add-btn');
-const portfolioCloseButton = document.querySelector('.popup_add__close');
-const portfolioPopupBox = document.querySelector('.popup_add');
-const portfolioImage = document.querySelector('input[name="popup_add__input-url"]');
-const portfolioTitle = document.querySelector('input[name="popup_add__input-name"]');
+const portfolioCloseButton = document.querySelector('.form__close');
+const portfolioPopupBox = document.querySelector('.form');
+const portfolioImage = document.querySelector('input[name="form__input-url"]');
+const portfolioTitle = document.querySelector('input[name="form__input-name"]');
 const portfolioNameText = document.querySelector('.popup-add__name');
 const portfolioWorkText = document.querySelector('.popup-add__work');
-const portfolioForm = document.querySelector('.popup_add__form');
+const portfolioForm = document.querySelector('.form__form');
+const submitButton = document.querySelector('.form__submit');
+
+// Function to check if both form inputs are filled
+function checkFormInputs() {
+  const urlValue = portfolioImage.value.trim();
+  const nameValue = portfolioTitle.value.trim();
+  
+  if (urlValue !== '' && nameValue !== '') {
+    submitButton.classList.add('filled');
+  } else {
+    submitButton.classList.remove('filled');
+  }
+}
+
+// Add event listeners to the input fields
+portfolioImage.addEventListener('input', checkFormInputs);
+portfolioTitle.addEventListener('input', checkFormInputs);
 
 
 portfolioAddButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.add('popup_add_active');
+  portfolioPopupBox.classList.add('form_active');
 });
 
-const errImg = document.querySelector('.error-img');
-const errMsg = document.querySelector('.error-msg');
+const errImg = document.querySelector('.form__error-img');
+const errMsg = document.querySelector('.form__error-msg');
+
+
 
 portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -131,16 +150,16 @@ portfolioForm.addEventListener('submit', function(event) {
   }
 
   if (portfolioImage.value.trim() === '') {
-      errImg.classList.add('error-img--active');
+      errImg.classList.add('form__error-img--active');
       errImg.textContent = 'Image Url harus diisi!';
       return false;
   }
   if (portfolioTitle.value.trim() === '') {
-      errMsg.classList.add('error-msg--active');
+      errMsg.classList.add('form__error-msg--active');
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
-  portfolioPopupBox.classList.remove('popup_add_active');
+  portfolioPopupBox.classList.remove('form_active');
   
   const clone = template.content.cloneNode(true);
 
@@ -157,25 +176,27 @@ portfolioForm.addEventListener('submit', function(event) {
 
 
   // remove class
-  errMsg.classList.remove('error-msg--active')
-  errImg.classList.remove('error-img--active')
+  errMsg.classList.remove('form__error-msg--active')
+  errImg.classList.remove('form__error-img--active')
   
   // clean up value
   portfolioImage.value = '';
   portfolioTitle.value = '';
-});
 
-portfolioCloseButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.remove('popup_add_active');
+});
+// remove popup-form
+portfolioCloseButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  portfolioPopupBox.classList.remove('form_active');
 });
 
 
 // image popup
 const elements = document.querySelectorAll('.element');
-const popupImage = document.querySelector('.popup_image');
-const popupImageFile = document.querySelector('.popup_image__file');
-const popupImageTitle = document.querySelector('.popup_image__title');
-const popupImageClose = document.querySelector('.popup_image__close');
+const popupImage = document.querySelector('.zoom');
+const popupImageFile = document.querySelector('.zoom__file');
+const popupImageTitle = document.querySelector('.zoom__title');
+const popupImageClose = document.querySelector('.zoom__close');
 
 // Event listener for each element
 elements.forEach(element => {
@@ -185,13 +206,13 @@ elements.forEach(element => {
   image.addEventListener('click', () => {
     popupImageFile.src = image.src;
     popupImageTitle.textContent = title.textContent;
-    popupImage.classList.add('popup_image_active');
+    popupImage.classList.add('zoom_active');
   });
 });
 
 // Event listener for closing the popup image
 popupImageClose.addEventListener('click', () => {
-  popupImage.classList.remove('popup_image_active');
+  popupImage.classList.remove('zoom_active');
 });
 
 

@@ -1,4 +1,4 @@
-/* .container {
+.container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -10,9 +10,9 @@
     grid-gap: 20px;
     height: fit-content;
     justify-content: center;
-} */
+}
 
-/* .popup_add__error-img {
+.form__error-img {
     font-size: 10px;
     margin: 0;
     height: 10px;
@@ -20,14 +20,14 @@
     color: red;
     display: flex;
 }
-.popup_add__error-img--active {
+.form__error-img--active {
     display: flex;
     height: 10px;
     font-size: 10px;
     opacity: 1;
 }
 
-.popup_add__error-msg {
+.form__error-msg {
     font-size: 10px;
     margin: 0;
     height: 10px;
@@ -35,15 +35,15 @@
     color: red;
     display: flex;
 }
-.popup_add__error-msg--active {
+.form__error-msg--active {
     display: flex;
     height: 10px;
     font-size: 10px;
     opacity: 1;
-} */
+}
 
 
-/* .popup_add {
+.form {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -54,14 +54,14 @@
     transform: translate(-50%, -50%);
 }
 
-.popup_add_active {
+.form_active {
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-} */
+}
 
-/* .popup_add__title {
+.form__title {
     color: #000000;
     display: flex;
     width: 100%;
@@ -70,15 +70,15 @@
     line-height: 29px;
     margin-top: 0px;
     margin-bottom: 30px;
-} */
+}
 
-/* .popup_add__fill {
+.form__fill {
     display: flex;
     flex-direction: column;
     gap: 0;
-} */
+}
 
-/* .popup_add__submit {
+.form__submit {
     background-color: #000000;
     color: white;
     width: 100%;
@@ -88,19 +88,26 @@
     margin-top: 20px;
 }
 
-.popup_add__submit:hover {
+.form__submit:hover {
     opacity: 0.5;
-} */
+}
 
-/* .popup_add__overlay {
+.form__submit.filled {
+    /* Styles for the filled state */
+    background-color: green; /* Example: change background color when filled */
+    color: white; /* Example: change text color when filled */
+    /* Add any additional styles for the filled state */
+  }
+
+.form__overlay {
     display: grid;
     flex-direction: column;
     width: 500px;
     height: fit-content;
     margin: auto auto auto auto;
-} */
+}
 
-/* .popup_add__input {
+.form__input {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -110,31 +117,31 @@
     line-height: 17px;
     border: none;
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-} */
+}
 
-/* .popup_add__form{
+.form__form{
     background-color: #ffffff;
     padding: 60px 40px;
     border-radius: 10px;
     display: grid;
     gap: 20px;
-} */
-/* .popup_add__close {
+}
+.form__close {
     display: flex;
     cursor: pointer;
     background: none;
     justify-content: end;
     margin-right: -35px;
     border: none;
-} */
+}
 
-/* .popup_add__close-svg {
+.form__close-svg {
     width: 20px;
     max-height: 20px;
-} */
+}
 
 
-/* .popup_image {
+.zoom {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -152,44 +159,44 @@
     transition: opacity 0.8s ease, visibility 0.7s ease;
   }
   
-  .popup_image_active {
+  .zoom_active {
     display: flex;
     opacity: 1;
     visibility: visible;
-  } */
+  }
   
-  /* .popup_image__content {
+  .zoom__content {
     padding: 10px;
     max-width: 400px;
     height: 800px;
     text-align: center;
-  } */
+  }
   
-  /* .popup_image__file {
+  .zoom__file {
     height: 700px;
     width: 400px;
     margin-bottom: 10px;
     object-fit: cover;
-  } */
+  }
   
-  /* .popup_image__title {
+  .zoom__title {
     font-size: 15px;
     font-weight: 100;
     margin-bottom: 10px;
     color: #ffffff;
     display: flex;
-  } */
+  }
   
-  /* .popup_image__close {
+  .zoom__close {
     display: flex;
     cursor: pointer;
     background: none;
     justify-content: end;
     margin-right: -468px;
     border: none;
-  } */
+  }
 
-  /* .element__delete {
+  .element__delete {
     background: url(../../../images/delete.svg) center no-repeat;
     position: absolute;
     display: flex;
@@ -202,70 +209,70 @@
     border: none;
     align-items: center;
     right: 0;
-} */
+}
 
 
 
 @media screen and (max-width: 768px) {
-    /* .container {
+    .container {
         grid-template-columns: repeat(auto-fit, minmax(25px, 45%));
         max-width: 768px;
-    } */
+    }
 
-    /* .popup_add__overlay {
+    .form__overlay {
         width: 60%;
-    } */
+    }
 
-    /* .popup_image__close {
+    .zoom__close {
         margin-right: -227px;
-    } */
-    /* .popup_image__file {
+    }
+    .zoom__file {
         height: 580px;
         width: 250px;
-    } */
-    /* .popup_image__content {
+    }
+    .zoom__content {
         padding: 10px;
         max-width: 400px;
         height: auto;
         text-align: center;
-      } */
+      }
 }
 
 @media screen and (max-width: 320px) {
-    /* .container {
+    .container {
         grid-template-columns: auto;
-    } */
+    }
 
-    /* .popup_add__title {
+    .form__title {
         font-size: 18px;
         padding-bottom: 0px;
-    } */
+    }
 
-    /* .popup_add__overlay {
+    .form__overlay {
         width: 270px;
-    } */
+    }
 
-    /* .popup_add__input {
+    .form__input {
         font-size: 13px;
-    } */
-    /* .popup_add__form {
+    }
+    .form__form {
         padding: 20px 20px;
-    } */
-    /* .popup_add__close {
+    }
+    .form__close {
         margin-right: 0px;
         margin-bottom: 10px;
         padding: 0px;
-    } */
+    }
 
-    /* .element__delete {
+    .element__delete {
         height: 35px;
         width: 22px;
         margin-right: 10px;
         margin-top: 5px;
         background-size: 20px 20px;
-    } */
-    /* .popup_image__file {
+    }
+    .zoom__file {
         height: 450px;
         width: 250px;
-    } */
+    }
 }
