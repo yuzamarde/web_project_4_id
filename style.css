@@ -13,37 +13,41 @@
 }
 
 .form__error-img {
-    font-size: 10px;
+    font-size: 13px;
     margin: 0;
     height: 10px;
     text-align: center;
+    padding-top: 5px;
     color: red;
     display: flex;
 }
 .form__error-img--active {
     display: flex;
     height: 10px;
-    font-size: 10px;
+    font-size: 13px;
+    padding-top: 5px;
     opacity: 1;
 }
 
 .form__error-msg {
-    font-size: 10px;
+    font-size: 13px;
     margin: 0;
     height: 10px;
     text-align: center;
+    padding-top: 5px;
     color: red;
     display: flex;
 }
 .form__error-msg--active {
     display: flex;
     height: 10px;
-    font-size: 10px;
+    font-size: 13px;
+    padding-top: 5px;
     opacity: 1;
 }
 
 
-.form {
+.forms {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -54,7 +58,7 @@
     transform: translate(-50%, -50%);
 }
 
-.form_active {
+.forms_active {
     padding: 20px 50px;
     display: flex;
     flex-direction: column;
@@ -79,27 +83,28 @@
 }
 
 .form__submit {
-    background-color: #000000;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    opacity: 0.2;
     width: 100%;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid black;
     cursor: pointer;
     margin-top: 20px;
 }
 
-.form__submit:hover {
+.form__submit-active:hover {
     opacity: 0.5;
 }
 
-.form__submit.filled {
-    /* Styles for the filled state */
-    background-color: green; /* Example: change background color when filled */
-    color: white; /* Example: change text color when filled */
-    /* Add any additional styles for the filled state */
+.form__submit-active {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    opacity: 1; 
   }
 
-.form__overlay {
+.forms__overlay {
     display: grid;
     flex-direction: column;
     width: 500px;
@@ -119,14 +124,14 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.form__form{
+.forms__form{
     background-color: #ffffff;
     padding: 60px 40px;
     border-radius: 10px;
     display: grid;
     gap: 20px;
 }
-.form__close {
+.forms__close {
     display: flex;
     cursor: pointer;
     background: none;
@@ -135,10 +140,6 @@
     border: none;
 }
 
-.form__close-svg {
-    width: 20px;
-    max-height: 20px;
-}
 
 
 .zoom {
@@ -219,7 +220,7 @@
         max-width: 768px;
     }
 
-    .form__overlay {
+    .forms__overlay {
         width: 60%;
     }
 
@@ -255,10 +256,10 @@
     .form__input {
         font-size: 13px;
     }
-    .form__form {
+    .forms__form {
         padding: 20px 20px;
     }
-    .form__close {
+    .forms__close {
         margin-right: 0px;
         margin-bottom: 10px;
         padding: 0px;

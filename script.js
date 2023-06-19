@@ -95,26 +95,45 @@ for (let x = 0; x < 6; x++) {
 // portfolio item add
 const page = document.querySelector(".page");
 const portfolioAddButton = document.querySelector('.profile__add-btn');
-const portfolioCloseButton = document.querySelector('.form__close');
-const portfolioPopupBox = document.querySelector('.form');
+const portfolioCloseButton = document.querySelector('.forms__close');
+const portfolioPopupBox = document.querySelector('.forms');
 const portfolioImage = document.querySelector('input[name="form__input-url"]');
 const portfolioTitle = document.querySelector('input[name="form__input-name"]');
-const portfolioNameText = document.querySelector('.popup-add__name');
-const portfolioWorkText = document.querySelector('.popup-add__work');
-const portfolioForm = document.querySelector('.form__form');
-const submitButton = document.querySelector('.form__submit');
+const portfolioForm = document.querySelector('.forms__form');
 
 // Function to check if both form inputs are filled
 function checkFormInputs() {
+  const submitButton = document.querySelector('.form__submit');
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
   
   if (urlValue !== '' && nameValue !== '') {
-    submitButton.classList.add('filled');
+    submitButton.classList.add('form__submit-active');
   } else {
-    submitButton.classList.remove('filled');
+    submitButton.classList.remove('form__submit-active');
   }
+  portfolioForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    portfolioImage.textContent = input.value;
+    portfolioTitle.textContent = subtextInput.value;
+    submitButton.classList.remove('form__submit-active');
+  });
 }
+
+portfolioForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  // Get the input values
+  const urlValue = portfolioImage.value.trim();
+  const nameValue = portfolioTitle.value.trim();
+  submitButton.classList.remove('form__submit-active');
+  
+  // Display the input values
+  portfolioImage.textContent = urlValue;
+  portfolioTitle.textContent = nameValue;
+
+});
+
+// Function to reset the form
 
 // Add event listeners to the input fields
 portfolioImage.addEventListener('input', checkFormInputs);
@@ -122,7 +141,7 @@ portfolioTitle.addEventListener('input', checkFormInputs);
 
 
 portfolioAddButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.add('form_active');
+  portfolioPopupBox.classList.add('forms_active');
 });
 
 const errImg = document.querySelector('.form__error-img');
@@ -134,10 +153,10 @@ portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
   
 
-  console.log(
-      portfolioImage.value,
-      portfolioTitle.value,
-  )
+  // console.log(
+  //     portfolioImage.value,
+  //     portfolioTitle.value,
+  // )
 
   errImg.textContent = '';
   errMsg.textContent = '';
@@ -159,7 +178,7 @@ portfolioForm.addEventListener('submit', function(event) {
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
-  portfolioPopupBox.classList.remove('form_active');
+  portfolioPopupBox.classList.remove('forms_active');
   
   const clone = template.content.cloneNode(true);
 
@@ -187,8 +206,9 @@ portfolioForm.addEventListener('submit', function(event) {
 // remove popup-form
 portfolioCloseButton.addEventListener('click', (event) => {
   event.preventDefault();
-  portfolioPopupBox.classList.remove('form_active');
+  portfolioPopupBox.classList.remove('forms_active');
 });
+
 
 
 // image popup
@@ -214,6 +234,8 @@ elements.forEach(element => {
 popupImageClose.addEventListener('click', () => {
   popupImage.classList.remove('zoom_active');
 });
+
+
 
 
 // delete element
