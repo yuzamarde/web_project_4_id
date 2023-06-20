@@ -57,10 +57,12 @@
 
 /* zoom */
 @import url(../blocks/zoom/zoom.css);
-@import url(../blocks/zoom/__close/forms__close.css);
-@import url(../blocks/zoom/__content/forms__close.css);
-@import url(../blocks/zoom/__file/forms__close.css);
-@import url(../blocks/zoom/__title/forms__close.css);
+@import url(../blocks/zoom/__close/zoom__close.css);
+@import url(../blocks/zoom/__content/zoom__content.css);
+@import url(../blocks/zoom/__file/zoom__file.css);
+@import url(../blocks/zoom/__title/zoom__title.css);
+
+
 
 
 /* footer */
