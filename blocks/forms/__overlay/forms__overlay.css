@@ -1,4 +1,4 @@
-.popup_add__overlay {
+.forms__overlay {
     display: grid;
     flex-direction: column;
     width: 500px;
@@ -6,13 +6,11 @@
     margin: auto auto auto auto;
 }
 @media screen and (max-width: 768px) {
-    .popup_add__overlay {
+    .forms__overlay {
         width: 60%;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .popup_add__overlay {
-        width: 270px;
-    }
+
 }

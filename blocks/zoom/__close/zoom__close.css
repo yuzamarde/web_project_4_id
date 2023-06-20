@@ -1,4 +1,4 @@
-.popup_image__close {
+.zoom__close {
     display: flex;
     cursor: pointer;
     background: none;
@@ -7,9 +7,9 @@
     border: none;
   }
 @media screen and (max-width: 768px) {
-    .popup_image__close {
+    .zoom__close {
         margin-right: -227px;
-    }
+    }  
 }
 
 @media screen and (max-width: 320px) {

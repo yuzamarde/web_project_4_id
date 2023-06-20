@@ -1,4 +1,4 @@
-.popup_image {
+.zoom {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -14,16 +14,16 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease, visibility 0.7s ease;
-  }
+}
   
-.popup_image_active {
+.zoom_active {
     display: flex;
     opacity: 1;
     visibility: visible;
-  }
+}
 
 @media screen and (max-width: 768px) {
-
+  
 }
 
 @media screen and (max-width: 320px) {
