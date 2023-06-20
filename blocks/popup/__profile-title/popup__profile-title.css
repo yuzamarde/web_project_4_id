@@ -17,5 +17,6 @@
     .popup__profile-title {
         font-size: 18px;
         padding-bottom: 0px;
+        margin-bottom: 10px;
     }
 }

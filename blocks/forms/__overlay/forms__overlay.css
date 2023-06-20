@@ -12,5 +12,7 @@
 }
 
 @media screen and (max-width: 320px) {
-
+    .forms__overlay {
+        width: 270px;
+    }
 }
