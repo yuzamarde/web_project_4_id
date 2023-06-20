@@ -1,0 +1,31 @@
+.form__submit {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    opacity: 0.2;
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid black;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.form__submit-active:hover {
+    opacity: 0.5;
+}
+
+.form__submit-active {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    opacity: 1; 
+}
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+    .form__submit {
+        margin-top: 10px;
+    }
+}

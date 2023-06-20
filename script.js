@@ -95,21 +95,59 @@ for (let x = 0; x < 6; x++) {
 // portfolio item add
 const page = document.querySelector(".page");
 const portfolioAddButton = document.querySelector('.profile__add-btn');
-const portfolioCloseButton = document.querySelector('.popup_add__close');
-const portfolioPopupBox = document.querySelector('.popup_add');
-const portfolioImage = document.querySelector('input[name="popup_add__input-url"]');
-const portfolioTitle = document.querySelector('input[name="popup_add__input-name"]');
-const portfolioNameText = document.querySelector('.popup-add__name');
-const portfolioWorkText = document.querySelector('.popup-add__work');
-const portfolioForm = document.querySelector('.popup_add__form');
+const portfolioCloseButton = document.querySelector('.forms__close');
+const portfolioPopupBox = document.querySelector('.forms');
+const portfolioImage = document.querySelector('input[name="form__input-url"]');
+const portfolioTitle = document.querySelector('input[name="form__input-name"]');
+const portfolioForm = document.querySelector('.forms__form');
+
+// Function to check if both form inputs are filled
+function checkFormInputs() {
+  const submitButton = document.querySelector('.form__submit');
+  const urlValue = portfolioImage.value.trim();
+  const nameValue = portfolioTitle.value.trim();
+  
+  if (urlValue !== '' && nameValue !== '') {
+    submitButton.classList.add('form__submit-active');
+  } else {
+    submitButton.classList.remove('form__submit-active');
+  }
+  portfolioForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    portfolioImage.textContent = input.value;
+    portfolioTitle.textContent = subtextInput.value;
+    submitButton.classList.remove('form__submit-active');
+  });
+}
+
+portfolioForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  // Get the input values
+  const urlValue = portfolioImage.value.trim();
+  const nameValue = portfolioTitle.value.trim();
+  submitButton.classList.remove('form__submit-active');
+  
+  // Display the input values
+  portfolioImage.textContent = urlValue;
+  portfolioTitle.textContent = nameValue;
+
+});
+
+// Function to reset the form
+
+// Add event listeners to the input fields
+portfolioImage.addEventListener('input', checkFormInputs);
+portfolioTitle.addEventListener('input', checkFormInputs);
 
 
 portfolioAddButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.add('popup_add_active');
+  portfolioPopupBox.classList.add('forms_active');
 });
 
-const errImg = document.querySelector('.popup_add__error-img');
-const errMsg = document.querySelector('.popup_add__error-msg');
+const errImg = document.querySelector('.form__error-img');
+const errMsg = document.querySelector('.form__error-msg');
+
+
 
 portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -122,6 +160,7 @@ portfolioForm.addEventListener('submit', function(event) {
 
   errImg.textContent = '';
   errMsg.textContent = '';
+  
   // logic
 
   if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
@@ -131,16 +170,16 @@ portfolioForm.addEventListener('submit', function(event) {
   }
 
   if (portfolioImage.value.trim() === '') {
-      errImg.classList.add('popup_add__error-img--active');
+      errImg.classList.add('form__error-img--active');
       errImg.textContent = 'Image Url harus diisi!';
       return false;
   }
   if (portfolioTitle.value.trim() === '') {
-      errMsg.classList.add('popup_add__error-msg--active');
+      errMsg.classList.add('form__error-msg--active');
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
-  portfolioPopupBox.classList.remove('popup_add_active');
+  portfolioPopupBox.classList.remove('forms_active');
   
   const clone = template.content.cloneNode(true);
 
@@ -157,25 +196,28 @@ portfolioForm.addEventListener('submit', function(event) {
 
 
   // remove class
-  errMsg.classList.remove('popup_add__error-msg--active')
-  errImg.classList.remove('popup_add__error-img--active')
+  errMsg.classList.remove('form__error-msg--active')
+  errImg.classList.remove('form__error-img--active')
   
   // clean up value
   portfolioImage.value = '';
   portfolioTitle.value = '';
+
+});
+// remove popup-form
+portfolioCloseButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  portfolioPopupBox.classList.remove('forms_active');
 });
 
-portfolioCloseButton.addEventListener('click', () => {
-  portfolioPopupBox.classList.remove('popup_add_active');
-});
 
 
 // image popup
 const elements = document.querySelectorAll('.element');
-const popupImage = document.querySelector('.popup_image');
-const popupImageFile = document.querySelector('.popup_image__file');
-const popupImageTitle = document.querySelector('.popup_image__title');
-const popupImageClose = document.querySelector('.popup_image__close');
+const popupImage = document.querySelector('.zoom');
+const popupImageFile = document.querySelector('.zoom__file');
+const popupImageTitle = document.querySelector('.zoom__title');
+const popupImageClose = document.querySelector('.zoom__close');
 
 // Event listener for each element
 elements.forEach(element => {
@@ -185,14 +227,16 @@ elements.forEach(element => {
   image.addEventListener('click', () => {
     popupImageFile.src = image.src;
     popupImageTitle.textContent = title.textContent;
-    popupImage.classList.add('popup_image_active');
+    popupImage.classList.add('zoom_active');
   });
 });
 
 // Event listener for closing the popup image
 popupImageClose.addEventListener('click', () => {
-  popupImage.classList.remove('popup_image_active');
+  popupImage.classList.remove('zoom_active');
 });
+
+
 
 
 // delete element

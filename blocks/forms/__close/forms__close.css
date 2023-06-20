@@ -1,4 +1,4 @@
-.popup_add__close {
+.forms__close {
     display: flex;
     cursor: pointer;
     background: none;
@@ -6,19 +6,14 @@
     margin-right: -35px;
     border: none;
 }
-
-.popup_add__close-svg {
-    width: 20px;
-    max-height: 20px;
-}
 @media screen and (max-width: 768px) {
-    .popup_add__close {
+  
+}
+
+@media screen and (max-width: 320px) {
+    .forms__close {
         margin-right: 0px;
         margin-bottom: 10px;
         padding: 0px;
     }
-}
-
-@media screen and (max-width: 320px) {
-
 }

@@ -1,4 +1,4 @@
-.popup_image__title {
+.zoom__title {
     font-size: 15px;
     font-weight: 100;
     margin-bottom: 10px;
@@ -6,7 +6,7 @@
     display: flex;
   }
 @media screen and (max-width: 768px) {
-
+  
 }
 
 @media screen and (max-width: 320px) {

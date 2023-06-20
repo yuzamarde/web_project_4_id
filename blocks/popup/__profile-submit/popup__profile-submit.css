@@ -16,5 +16,7 @@
 }
 
 @media screen and (max-width: 320px) {
-
+    .popup__profile-submit {
+        margin-top: 10px;
+    }
 }

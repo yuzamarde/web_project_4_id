@@ -1,34 +1,38 @@
-.popup_add__error-img {
-    font-size: 10px;
+.form__error-img {
+    font-size: 13px;
     margin: 0;
     height: 10px;
     text-align: center;
+    padding-top: 5px;
     color: red;
     display: flex;
 }
-.popup_add__error-img--active {
+.form__error-img--active {
     display: flex;
     height: 10px;
-    font-size: 10px;
+    font-size: 13px;
+    padding-top: 5px;
     opacity: 1;
 }
 
-.popup_add__error-msg {
-    font-size: 10px;
+.form__error-msg {
+    font-size: 13px;
     margin: 0;
     height: 10px;
     text-align: center;
+    padding-top: 5px;
     color: red;
     display: flex;
 }
-.popup_add__error-msg--active {
+.form__error-msg--active {
     display: flex;
     height: 10px;
-    font-size: 10px;
+    font-size: 13px;
+    padding-top: 5px;
     opacity: 1;
 }
 @media screen and (max-width: 768px) {
-
+  
 }
 
 @media screen and (max-width: 320px) {
