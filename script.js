@@ -103,20 +103,20 @@ const portfolioForm = document.querySelector('.forms__form');
 
 // Function to check if both form inputs are filled
 function checkFormInputs() {
-  const submitButton = document.querySelector('.form__submit');
+  const submitButton = document.querySelector('.forms__submit');
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
   
   if (urlValue !== '' && nameValue !== '') {
-    submitButton.classList.add('form__submit-active');
+    submitButton.classList.add('forms__submit-active');
   } else {
-    submitButton.classList.remove('form__submit-active');
+    submitButton.classList.remove('forms__submit-active');
   }
   portfolioForm.addEventListener('submit', (event) => {
     event.preventDefault();
     portfolioImage.textContent = input.value;
     portfolioTitle.textContent = subtextInput.value;
-    submitButton.classList.remove('form__submit-active');
+    submitButton.classList.remove('forms__submit-active');
   });
 }
 
@@ -125,7 +125,7 @@ portfolioForm.addEventListener('submit', (event) => {
   // Get the input values
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
-  submitButton.classList.remove('form__submit-active');
+  submitButton.classList.remove('forms__submit-active');
   
   // Display the input values
   portfolioImage.textContent = urlValue;
@@ -144,8 +144,8 @@ portfolioAddButton.addEventListener('click', () => {
   portfolioPopupBox.classList.add('forms_active');
 });
 
-const errImg = document.querySelector('.form__error-img');
-const errMsg = document.querySelector('.form__error-msg');
+const errImg = document.querySelector('.forms__error-img');
+const errMsg = document.querySelector('.forms__error-msg');
 
 
 
@@ -170,12 +170,12 @@ portfolioForm.addEventListener('submit', function(event) {
   }
 
   if (portfolioImage.value.trim() === '') {
-      errImg.classList.add('form__error-img--active');
+      errImg.classList.add('forms__error-img--active');
       errImg.textContent = 'Image Url harus diisi!';
       return false;
   }
   if (portfolioTitle.value.trim() === '') {
-      errMsg.classList.add('form__error-msg--active');
+      errMsg.classList.add('forms__error-msg--active');
       errMsg.textContent = 'Title harus diisi!';
       return false;
   }
@@ -196,8 +196,8 @@ portfolioForm.addEventListener('submit', function(event) {
 
 
   // remove class
-  errMsg.classList.remove('form__error-msg--active')
-  errImg.classList.remove('form__error-img--active')
+  errMsg.classList.remove('forms__error-msg--active')
+  errImg.classList.remove('forms__error-img--active')
   
   // clean up value
   portfolioImage.value = '';
