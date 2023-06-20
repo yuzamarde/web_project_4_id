@@ -36,5 +36,17 @@
 }
 
 @media screen and (max-width: 320px) {
-
+    .form__error-img {
+        font-size: 8px;
+    }
+    .form__error-img--active {
+        font-size: 8px;
+    }
+    
+    .form__error-msg {
+        font-size: 8px;
+    }
+    .form__error-msg--active {
+        font-size: 8px;
+    }
 }
