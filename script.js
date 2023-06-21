@@ -93,10 +93,10 @@ const portfolioPopupBox = document.querySelector('.forms');
 const portfolioImage = document.querySelector('input[name="form__input-url"]');
 const portfolioTitle = document.querySelector('input[name="form__input-name"]');
 const portfolioForm = document.querySelector('.forms__form');
+const submitButton = document.querySelector('.forms__submit');
 
 // Function to check if both form inputs are filled
 function checkFormInputs() {
-  const submitButton = document.querySelector('.forms__submit');
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
   
@@ -123,7 +123,6 @@ portfolioForm.addEventListener('submit', (event) => {
   // Display the input values
   portfolioImage.textContent = urlValue;
   portfolioTitle.textContent = nameValue;
-
 });
 
 
@@ -227,7 +226,6 @@ elements.forEach(element => {
 popupImageClose.addEventListener('click', () => {
   popupImage.classList.remove('zoom_active');
 });
-
 
 
 
