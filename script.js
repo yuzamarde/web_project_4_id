@@ -1,32 +1,31 @@
 // profile edit
-const tombol = document.querySelector('.profile__edit-btn');
-const close = document.querySelector('.popup__close');
-const box = document.querySelector('.popup');
-const input = document.querySelector('input[name="popup__input-name"]');
-const subtextInput = document.querySelector('input[name="popup__input-work"]');
-const text = document.querySelector('.profile__name');
-const subtext = document.querySelector('.profile__work');
-const form = document.querySelector('.popup__form');
+const editProfileButton = document.querySelector('.profile__edit-btn');
+const closePopupButton = document.querySelector('.popup__close');
+const editPopupBox = document.querySelector('.popup');
+const authorNewName = document.querySelector('input[name="popup__input_name"]');
+const authorNewWork = document.querySelector('input[name="popup__input_work"]');
+const authorName = document.querySelector('.profile__name');
+const authorWork = document.querySelector('.profile__work');
+const editAuthorPopupForm = document.querySelector('.popup__form');
 
 
 // popup edit name
-tombol.addEventListener('click', () => {
-  box.classList.add('popup_active');
-  input.value = text.textContent;
-  subtextInput.value = subtext.textContent;
+editProfileButton.addEventListener('click', () => {
+  editPopupBox.classList.add('popup_active');
+  authorNewName.value = authorName.textContent;
+  authorNewWork.value = authorWork.textContent;
 });
 
-form.addEventListener('submit', (event) => {
+editAuthorPopupForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  text.textContent = input.value;
-  subtext.textContent = subtextInput.value;
-  box.classList.remove('popup_active');
+  authorName.textContent = authorNewName.value;
+  authorWork.textContent = authorNewWork.value;
+  editPopupBox.classList.remove('popup_active');
 });
 
-close.addEventListener('click', () => {
-  box.classList.remove('popup_active');
+closePopupButton.addEventListener('click', () => {
+  editPopupBox.classList.remove('popup_active');
 });
-
 
 
 // templete
@@ -60,13 +59,9 @@ const initialCards = [
 ];
 
 function selectPicture() {
-  // console. log('click')
   console.log(this.parentElement);
   const pictureName = this.parentElement.querySelector('.element__title');
   console.log(pictureName);
-  // ketika button di click warna card jadi abu abu
-  // this.parentElement.classList.add('element__button-active');
-  
 }
 
 function activeLike(evt) {
@@ -75,7 +70,6 @@ function activeLike(evt) {
 
 for (let x = 0; x < 6; x++) {
   const clone = template.content.cloneNode(true);
-  // console. log(clone)
   // template diinject ke dalam container
   const cardImage = clone.querySelector('.element__image');
   const cardTitle = clone.querySelector('.element__title');
@@ -90,7 +84,6 @@ for (let x = 0; x < 6; x++) {
   const firstElement = container.firstChild;
   container.insertBefore(clone, firstElement);
 }
-
 
 // portfolio item add
 const page = document.querySelector(".page");
@@ -114,8 +107,8 @@ function checkFormInputs() {
   }
   portfolioForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    portfolioImage.textContent = input.value;
-    portfolioTitle.textContent = subtextInput.value;
+    portfolioImage.textContent = '';
+    portfolioTitle.textContent = '';
     submitButton.classList.remove('forms__submit-active');
   });
 }
@@ -133,7 +126,6 @@ portfolioForm.addEventListener('submit', (event) => {
 
 });
 
-// Function to reset the form
 
 // Add event listeners to the input fields
 portfolioImage.addEventListener('input', checkFormInputs);
@@ -161,8 +153,8 @@ portfolioForm.addEventListener('submit', function(event) {
   errImg.textContent = '';
   errMsg.textContent = '';
   
-  // logic
 
+  // logic error missage
   if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
       errImg.textContent = 'Image Url harus diisi!';
       errMsg.textContent = 'Title harus diisi!';
