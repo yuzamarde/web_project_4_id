@@ -4,13 +4,18 @@
     margin-right: auto;
     width: 75%;
     max-width: 1200px;
+    display: -ms-grid;
     display: grid;
-    /* grid-template-columns: auto auto auto; */
-    grid-template-columns: repeat(auto-fit, minmax(70px, 32%));
-    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 32%));
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     grid-gap: 20px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 @media screen and (max-width: 768px) {
     .container {
@@ -21,6 +26,7 @@
 
 @media screen and (max-width: 320px) {
     .container {
+        -ms-grid-columns: auto;
         grid-template-columns: auto;
     }
 }
