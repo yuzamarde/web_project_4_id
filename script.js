@@ -1,4 +1,4 @@
-// profile edit
+// popup-edit profile
 const editProfileButton = document.querySelector('.profile__edit-btn');
 const closePopupButton = document.querySelector('.popup__close');
 const editPopupBox = document.querySelector('.popup');
@@ -7,6 +7,7 @@ const authorNewWork = document.querySelector('input[name="popup__input_work"]');
 const authorName = document.querySelector('.profile__name');
 const authorWork = document.querySelector('.profile__work');
 const editAuthorPopupForm = document.querySelector('.popup__form');
+const popupOverlay = document.querySelector('.popup__overlay');
 
 editProfileButton.addEventListener('click', () => {
   editPopupBox.classList.add('popup_active');
@@ -25,7 +26,23 @@ closePopupButton.addEventListener('click', () => {
   editPopupBox.classList.remove('popup_active');
 });
 
-// template
+popupOverlay.addEventListener('click', () => {
+  editPopupBox.classList.remove('popup_active');
+});
+
+//press esc
+const closePopup = () => {
+  editPopupBox.classList.remove('popup_active');
+};
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closePopup();
+  }
+});
+
+
+
+// template cards
 const template = document.querySelector('.elements');
 const container = document.querySelector('.container');
 const initialCards = [
@@ -55,16 +72,20 @@ const initialCards = [
   }
 ];
 
+
+// Element card code to fungction with eny alse
 function selectPicture() {
   console.log(this.parentElement);
   const pictureName = this.parentElement.querySelector('.element__title');
   console.log(pictureName);
 }
 
+//to active like button
 function activeLike(evt) {
   evt.target.classList.toggle('element__button-active');
 }
 
+// to delete clone cards
 function deleteElement() {
   const element = this.parentElement;
   element.remove();
@@ -111,7 +132,9 @@ const portfolioImage = document.querySelector('input[name="form__input-url"]');
 const portfolioTitle = document.querySelector('input[name="form__input-name"]');
 const portfolioForm = document.querySelector('.forms__form');
 const submitButton = document.querySelector('.forms__submit');
+const popupForms = document.querySelector('.forms__overlay');
 
+// chang color submit if input already fill
 function checkFormInputs() {
     const urlValue = portfolioImage.value.trim();
     const nameValue = portfolioTitle.value.trim();
@@ -131,7 +154,7 @@ function checkFormInputs() {
 
   portfolioForm.addEventListener('submit', (event) => {
     event.preventDefault();
-  //   // Get the input values
+    // Get the input values
     const urlValue = portfolioImage.value.trim();
     const nameValue = portfolioTitle.value.trim();
     submitButton.classList.remove('forms__submit-active');
@@ -199,6 +222,7 @@ if (portfolioTitle.value.trim() === '') {
   portfolioTitle.value = '';
 });
 
+// show or close popup form
 portfolioAddButton.addEventListener('click', () => {
   portfolioPopupBox.classList.add('forms_active');
 });
@@ -207,6 +231,21 @@ portfolioCloseButton.addEventListener('click', (event) => {
   event.preventDefault();
   portfolioPopupBox.classList.remove('forms_active');
 });
+popupForms.addEventListener('click', (event) => {
+  event.preventDefault();
+  portfolioPopupBox.classList.remove('forms_active');
+});
+
+const closePopupForm = () => {
+  portfolioPopupBox.classList.remove('forms_active');
+};
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closePopupForm();
+  }
+});
+
+
 
 // image popup
 const elements = document.querySelectorAll('.element');
@@ -214,7 +253,7 @@ const popupImage = document.querySelector('.zoom');
 const popupImageFile = document.querySelector('.zoom__file');
 const popupImageTitle = document.querySelector('.zoom__title');
 const popupImageClose = document.querySelector('.zoom__close');
-
+const zoomOverlay = document.querySelector('.zoom__overlay');
 
 elements.forEach(element => {
   const image = element.querySelector('.element__image');
@@ -229,6 +268,19 @@ elements.forEach(element => {
 
 popupImageClose.addEventListener('click', () => {
   popupImage.classList.remove('zoom_active');
+});
+
+zoomOverlay.addEventListener('click', () => {
+  popupImage.classList.remove('zoom_active');
+});
+
+const closePopupZoom = () => {
+  popupImage.classList.remove('zoom_active');
+};
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closePopupZoom();
+  }
 });
 
 // Delete element
