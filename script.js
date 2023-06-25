@@ -135,22 +135,22 @@ const submitButton = document.querySelector('.forms__submit');
 const popupForms = document.querySelector('.forms__overlay');
 
 // chang color submit if input already fill
-function checkFormInputs() {
-    const urlValue = portfolioImage.value.trim();
-    const nameValue = portfolioTitle.value.trim();
+// function checkFormInputs() {
+//     const urlValue = portfolioImage.value.trim();
+//     const nameValue = portfolioTitle.value.trim();
     
-    if (urlValue !== '' && nameValue !== '') {
-      submitButton.classList.add('forms__submit-active');
-    } else {
-      submitButton.classList.remove('forms__submit-active');
-    }
-    portfolioForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      portfolioImage.textContent = '';
-      portfolioTitle.textContent = '';
-      submitButton.classList.remove('forms__submit-active');
-    });
-  }
+//     if (urlValue !== '' && nameValue !== '') {
+//       submitButton.classList.add('forms__submit-active');
+//     } else {
+//       submitButton.classList.remove('forms__submit-active');
+//     }
+//     portfolioForm.addEventListener('submit', (event) => {
+//       event.preventDefault();
+//       portfolioImage.textContent = '';
+//       portfolioTitle.textContent = '';
+//       submitButton.classList.remove('forms__submit-active');
+//     });
+//   }
 
   portfolioForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -158,7 +158,6 @@ function checkFormInputs() {
     const urlValue = portfolioImage.value.trim();
     const nameValue = portfolioTitle.value.trim();
     submitButton.classList.remove('forms__submit-active');
-    
     // Display the input values
     portfolioImage.textContent = urlValue;
     portfolioTitle.textContent = nameValue;
@@ -166,57 +165,52 @@ function checkFormInputs() {
   
   
   // Add event listeners to the input fields
-  portfolioImage.addEventListener('input', checkFormInputs);
-  portfolioTitle.addEventListener('input', checkFormInputs);
+  // portfolioImage.addEventListener('input', checkFormInputs);
+  // portfolioTitle.addEventListener('input', checkFormInputs);
   
   
   portfolioAddButton.addEventListener('click', () => {
     portfolioPopupBox.classList.add('forms_active');
   });
   
-  const errImg = document.querySelector('.forms__error-img');
-  const errMsg = document.querySelector('.forms__error-msg');
+  // const errImg = document.querySelector('.forms__error-img');
+  // const errMsg = document.querySelector('.forms__error-msg');
 
 
   
-
 portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  console.log(
-    portfolioImage.value,
-    portfolioTitle.value,
-)
 
-errImg.textContent = '';
-errMsg.textContent = '';
+// errImg.textContent = '';
+// errMsg.textContent = '';
 
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
 
-  if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
-    errImg.textContent = 'Image Url harus diisi!';
-    errMsg.textContent = 'Title harus diisi!';
-    return false;
-}
+//   if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
+//     errImg.textContent = 'Image Url harus diisi!';
+//     errMsg.textContent = 'Title harus diisi!';
+//     return false;
+// }
 
-if (portfolioImage.value.trim() === '') {
-    errImg.classList.add('forms__error-img--active');
-    errImg.textContent = 'Image Url harus diisi!';
-    return false;
-}
-if (portfolioTitle.value.trim() === '') {
-    errMsg.classList.add('forms__error-msg--active');
-    errMsg.textContent = 'Title harus diisi!';
-    return false;
-}
+// if (portfolioImage.value.trim() === '') {
+//     errImg.classList.add('forms__error-img--active');
+//     errImg.textContent = 'Image Url harus diisi!';
+//     return false;
+// }
+// if (portfolioTitle.value.trim() === '') {
+//     errMsg.classList.add('forms__error-msg--active');
+//     errMsg.textContent = 'Title harus diisi!';
+//     return false;
+// }
   portfolioPopupBox.classList.remove('forms_active');
 
   addCardToContainer({ name: nameValue, link: urlValue });
   
   // remove class
-  errMsg.classList.remove('forms__error-msg--active')
-  errImg.classList.remove('forms__error-img--active')
+  // errMsg.classList.remove('forms__error-msg--active')
+  // errImg.classList.remove('forms__error-img--active')
   
   portfolioImage.value = '';
   portfolioTitle.value = '';
@@ -289,3 +283,5 @@ const deleteButtons = document.querySelectorAll('.element__delete');
 deleteButtons.forEach((deleteButton) => {
   deleteButton.addEventListener('click', deleteElement);
 });
+
+

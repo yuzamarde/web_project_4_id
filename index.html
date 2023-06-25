@@ -39,28 +39,40 @@
     <section class="popup">
       <div class="popup__overlay"></div>
       <button class="popup__close" type="button"><img src="./images/Close.svg" alt="close image"></button>
-      <form class="popup__form" name="popup__profile">
+      <form class="popup__form" name="popup__profile" novalidate>
         <h2 class="popup__profile-title">Edit Name</h2>
-        <input type="text" class="popup__input" name="popup__input_name" id="popup__input-name" value="Jacques Cousteau">
-        <input type="text" class="popup__input" name="popup__input_work" id="popup__input-work" value="Penjelajah">
-        <button class="popup__profile-submit" type="submit">Simpan</button>
+        <fieldset class="popup__set">
+          <label class="popup__fill">
+            <input type="text" class="popup__input" name="popup__input_name" id="popup__input-name" value="Jacques Cousteau" >
+            <span class="popup__error-msg"></span>
+          </label>
+          <label class="popup__fill">
+            <input type="text" class="popup__input" name="popup__input_work" id="popup__input-work" value="Penjelajah">
+            <span class="popup__error-msg"></span>
+          </label>
+          <button class="popup__profile-submit" type="submit">Simpan</button>
+        </fieldset>
       </form>
     </section>
 
     <section class="forms">
       <div class="forms__overlay"></div>
       <button class="forms__close" type="button"><img src="./images/Close.svg" alt="close image"></button>
-      <form class="forms__form" name="popup__profile">
+      <form class="forms__form" name="popup__profile" novalidate>
         <h2 class="forms__title">Tempat baru</h2>
-        <label class="forms__fill">
-          <input type="text" class="forms__input" name="form__input-name" id="form__input-name" placeholder="name">
-          <a class="forms__error-msg"></a>
+        <fieldset class="forms__set">
+          <label class="forms__fill">
+            <input type="text" class="forms__input" name="form__input-name" id="email-input" placeholder="name" required minlength="7">
+            <!-- <input type="text" class="forms__input" id="email-input" required minlength="7"> -->
+            <span class="forms__input-error email-input-error" ></span>
+          </label>
+          <label class="forms__fill">
+            <!-- <input type="url" class="forms__input" id="password-input" required minlength="7"> -->
+            <input type="url" class="forms__input" name="form__input-url" id="password-input" placeholder="Image url" required minlength="7"> 
+            <span class="forms__input-error forms__input_type_error email-input-error" ></span>
         </label>
-        <label class="forms__fill">
-          <input type="text" class="forms__input" name="form__input-url" id="form__input-url" placeholder="Image url">
-          <a class="forms__error-img"></a>
-        </label>
-        <button class="forms__submit" type="submit" name="send">Simpan</button>
+        </fieldset>
+        <button class="forms__submit form__button button" type="submit" name="send">Simpan</button>
       </form>
     </section>
 
@@ -77,6 +89,7 @@
       <p class="footer__copyright">© 2023. yuza</p>
     </footer>
   </main>
+  <script src="validation.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
