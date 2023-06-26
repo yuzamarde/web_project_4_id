@@ -38,6 +38,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
   }
   
   .forms__fill_type_row {
@@ -97,7 +98,7 @@
     font-size: 16px;
     line-height: 19px;
     color: #fff;
-    background: #007DFF;
+    background: #000000;
     border-radius: 1px;
     cursor: pointer;
     outline: none;

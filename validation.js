@@ -36,6 +36,11 @@ const showInputError = (formElement, inputElement, errorMessage) => {
       buttonElement.classList.remove("forms__submit_inactive");
       buttonElement.disabled = false;
     }
+    formElement.addEventListener('submit', (event) => {
+      event.preventDefault();
+      buttonElement.classList.add('forms__submit_inactive');
+    });
+  
   };
   
   const setEventListeners = (formElement) => {
@@ -50,7 +55,10 @@ const showInputError = (formElement, inputElement, errorMessage) => {
         toggleButtonState(formElement, buttonElement);
       });
     });
+    
   };
+
+  
   
   const enableValidation = () => {
     const formList = Array.from(document.querySelectorAll(".forms__form"));
