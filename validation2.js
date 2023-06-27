@@ -38,19 +38,6 @@ const toggleProfileButtonState = (formElement, buttonElement) => {
     buttonElement.disabled = false;
   }
 };
-// const toggleProfileButtonState = (formElement, buttonElement) => {
-//   const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
-//   const authorNewName = formElement.querySelector('input[name="popup__input-name"]');
-//   const authorNewWork = formElement.querySelector('input[name="popup__input-work"]');
-
-//   if (hasProfileInvalidInput(inputList) || authorNewName.value.trim() === '' || authorNewWork.value.trim() === '') {
-//     buttonElement.classList.add("popup__submit_inactive");
-//     buttonElement.disabled = true;
-//   } else {
-//     buttonElement.classList.remove("popup__submit_inactive");
-//     buttonElement.disabled = false;
-//   }
-// };
 
 const setProfileEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
@@ -86,5 +73,8 @@ const enableProfileValidation  = () => {
 };
 
 enableProfileValidation ();
+
+
+
 
 

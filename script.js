@@ -20,10 +20,10 @@ editAuthorPopupForm.addEventListener('submit', (event) => {
   authorName.textContent = authorNewName.value;
   authorWork.textContent = authorNewWork.value;
   editPopupBox.classList.remove('popup_active');
-  authorNewName.textContent = newName;
-  authorNewWork.textContent = newWork;
-  
+  authorNewName.value = '';
+  authorNewWork.value = '';
 });
+
 
 closePopupButton.addEventListener('click', () => {
   editPopupBox.classList.remove('popup_active');
@@ -42,6 +42,23 @@ document.addEventListener('keydown', (event) => {
     closePopup();
   }
 });
+
+closePopupButton.addEventListener('click', () => {
+  editPopupBox.classList.remove('popup_active');
+  const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+  errorElements.forEach((errorElement) => {
+    errorElement.classList.remove('popup__input-error_active');
+  });
+});
+
+popupOverlay.addEventListener('click', () => {
+  editPopupBox.classList.remove('popup_active');
+  const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+  errorElements.forEach((errorElement) => {
+    errorElement.classList.remove('popup__input-error_active');
+  });
+});
+
 
 
 
@@ -137,23 +154,6 @@ const portfolioForm = document.querySelector('.forms__form');
 const submitButton = document.querySelector('.forms__submit');
 const popupForms = document.querySelector('.forms__overlay');
 
-// chang color submit if input already fill
-// function checkFormInputs() {
-//     const urlValue = portfolioImage.value.trim();
-//     const nameValue = portfolioTitle.value.trim();
-    
-//     if (urlValue !== '' && nameValue !== '') {
-//       submitButton.classList.add('forms__submit-active');
-//     } else {
-//       submitButton.classList.remove('forms__submit-active');
-//     }
-//     portfolioForm.addEventListener('submit', (event) => {
-//       event.preventDefault();
-//       portfolioImage.textContent = '';
-//       portfolioTitle.textContent = '';
-//       submitButton.classList.remove('forms__submit-active');
-//     });
-//   }
 
   portfolioForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -167,54 +167,17 @@ const popupForms = document.querySelector('.forms__overlay');
   });
   
   
-  // Add event listeners to the input fields
-  // portfolioImage.addEventListener('input', checkFormInputs);
-  // portfolioTitle.addEventListener('input', checkFormInputs);
-  
-  
   portfolioAddButton.addEventListener('click', () => {
     portfolioPopupBox.classList.add('forms_active');
   });
   
-  // const errImg = document.querySelector('.forms__error-img');
-  // const errMsg = document.querySelector('.forms__error-msg');
-
-
   
 portfolioForm.addEventListener('submit', function(event) {
   event.preventDefault();
-
-
-// errImg.textContent = '';
-// errMsg.textContent = '';
-
   const urlValue = portfolioImage.value.trim();
   const nameValue = portfolioTitle.value.trim();
-
-//   if (portfolioImage.value.trim() === '' && portfolioTitle.value.trim() === '') {
-//     errImg.textContent = 'Image Url harus diisi!';
-//     errMsg.textContent = 'Title harus diisi!';
-//     return false;
-// }
-
-// if (portfolioImage.value.trim() === '') {
-//     errImg.classList.add('forms__error-img--active');
-//     errImg.textContent = 'Image Url harus diisi!';
-//     return false;
-// }
-// if (portfolioTitle.value.trim() === '') {
-//     errMsg.classList.add('forms__error-msg--active');
-//     errMsg.textContent = 'Title harus diisi!';
-//     return false;
-// }
   portfolioPopupBox.classList.remove('forms_active');
-
   addCardToContainer({ name: nameValue, link: urlValue });
-  
-  // remove class
-  // errMsg.classList.remove('forms__error-msg--active')
-  // errImg.classList.remove('forms__error-img--active')
-  
   portfolioImage.value = '';
   portfolioTitle.value = '';
 });
@@ -233,6 +196,7 @@ popupForms.addEventListener('click', (event) => {
   portfolioPopupBox.classList.remove('forms_active');
 });
 
+//press esc
 const closePopupForm = () => {
   portfolioPopupBox.classList.remove('forms_active');
 };
