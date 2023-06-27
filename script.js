@@ -2,8 +2,8 @@
 const editProfileButton = document.querySelector('.profile__edit-btn');
 const closePopupButton = document.querySelector('.popup__close');
 const editPopupBox = document.querySelector('.popup');
-const authorNewName = document.querySelector('input[name="popup__input_name"]');
-const authorNewWork = document.querySelector('input[name="popup__input_work"]');
+const authorNewName = document.querySelector('input[name="popup__input-name"]');
+const authorNewWork = document.querySelector('input[name="popup__input-work"]');
 const authorName = document.querySelector('.profile__name');
 const authorWork = document.querySelector('.profile__work');
 const editAuthorPopupForm = document.querySelector('.popup__form');
@@ -20,6 +20,9 @@ editAuthorPopupForm.addEventListener('submit', (event) => {
   authorName.textContent = authorNewName.value;
   authorWork.textContent = authorNewWork.value;
   editPopupBox.classList.remove('popup_active');
+  authorNewName.textContent = newName;
+  authorNewWork.textContent = newWork;
+  
 });
 
 closePopupButton.addEventListener('click', () => {

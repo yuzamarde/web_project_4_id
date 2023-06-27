@@ -1,35 +1,35 @@
 //pupup profile validation
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showCardInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.add("forms__input_type_error");
     errorElement.textContent = errorMessage;
     errorElement.classList.add("forms__input-error_active");
   };
   
-  const hideInputError = (formElement, inputElement) => {
+  const hideCardInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove("forms__input_type_error");
     errorElement.classList.remove("forms__input-error_active");
     errorElement.textContent = "";
   };
   
-  const checkInputValidity = (formElement, inputElement) => {
+  const checkCardInputValidity = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
-      showInputError(formElement, inputElement, inputElement.validationMessage);
+      showCardInputError(formElement, inputElement, inputElement.validationMessage);
     } else {
-      hideInputError(formElement, inputElement);
+      hideCardInputError(formElement, inputElement);
     }
   };
   
-  const hasInvalidInput = (inputList) => {
+  const hasCardInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
   
-  const toggleButtonState = (formElement, buttonElement) => {
+  const toggleCardButtonState = (formElement, buttonElement) => {
     const inputList = Array.from(formElement.querySelectorAll(".forms__input"));
-    if (hasInvalidInput(inputList)) {
+    if (hasCardInvalidInput(inputList)) {
       buttonElement.classList.add("forms__submit_inactive");
       buttonElement.disabled = true;
     } else {
@@ -43,16 +43,16 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   
   };
   
-  const setEventListeners = (formElement) => {
+  const setCardEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(".forms__input"));
     const buttonElement = formElement.querySelector(".forms__submit");
   
-    toggleButtonState(formElement, buttonElement);
+    toggleCardButtonState(formElement, buttonElement);
   
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {
-        checkInputValidity(formElement, inputElement);
-        toggleButtonState(formElement, buttonElement);
+        checkCardInputValidity(formElement, inputElement);
+        toggleCardButtonState(formElement, buttonElement);
       });
     });
     
@@ -60,7 +60,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 
   
   
-  const enableValidation = () => {
+  const enableCardValidation = () => {
     const formList = Array.from(document.querySelectorAll(".forms__form"));
     formList.forEach((formElement) => {
       formElement.addEventListener("submit", function (evt) {
@@ -68,17 +68,17 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   
         const inputList = Array.from(formElement.querySelectorAll(".forms__input"));
         inputList.forEach((inputElement) => {
-          checkInputValidity(formElement, inputElement);
+          checkCardInputValidity(formElement, inputElement);
         });
   
         const buttonElement = formElement.querySelector(".forms__submit");
-        toggleButtonState(formElement, buttonElement);
+        toggleCardButtonState(formElement, buttonElement);
       });
   
-      setEventListeners(formElement);
+      setCardEventListeners(formElement);
     });
   };
   
-  enableValidation();
+  enableCardValidation();
   
 //popup image validation
