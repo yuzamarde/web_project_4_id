@@ -38,9 +38,11 @@
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/__profile-title/popup__profile-title.css);
-@import url(../blocks/popup/__profile-submit/popup__profile-submit.css);
+@import url(../blocks/popup/__submit/popup__submit.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__set/popup__set.css);
+@import url(../blocks/popup/__fill/popup__fill.css);
 
 /* forms */
 @import url(../blocks/forms/forms.css);
@@ -52,6 +54,7 @@
 @import url(../blocks/forms/__overlay/forms__overlay.css);
 @import url(../blocks/forms/__submit/forms__submit.css);
 @import url(../blocks/forms/__title/forms__title.css);
+@import url(../blocks/forms/__set/forms__set.css);
 
 
 /* zoom */
@@ -60,6 +63,7 @@
 @import url(../blocks/zoom/__content/zoom__content.css);
 @import url(../blocks/zoom/__file/zoom__file.css);
 @import url(../blocks/zoom/__title/zoom__title.css);
+@import url(../blocks/zoom/__overlay/zoom__overlay.css);
 
 
 

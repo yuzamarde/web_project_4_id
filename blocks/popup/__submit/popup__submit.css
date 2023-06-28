@@ -1,5 +1,5 @@
-.forms__submit {
-    width: 99%;
+.popup__submit {
+    width: 100%;
     font-size: 15px;
     line-height: 19px;
     color: #fff;
@@ -15,7 +15,7 @@
     transition: 0.3s;
   }
 
-.forms__submit_inactive {
+.popup__submit_inactive {
     color: #B8B8B8;
     background: #EDEDED;
     pointer-events: none;
@@ -23,18 +23,17 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.forms__submit:hover {
+  }
+  
+.popup__submit:hover {
     opacity: 0.5;
 }
-
 @media screen and (max-width: 768px) {
-  
+
 }
 
 @media screen and (max-width: 320px) {
-    .forms__submit {
+    .popup__submit {
         margin-top: 10px;
     }
 }

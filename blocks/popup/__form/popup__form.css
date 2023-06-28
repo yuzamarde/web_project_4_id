@@ -3,7 +3,8 @@
     padding: 60px 40px;
     width: 400px;
     border-radius: 10px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
