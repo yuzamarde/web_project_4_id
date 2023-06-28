@@ -43,20 +43,59 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+
 closePopupButton.addEventListener('click', () => {
   editPopupBox.classList.remove('popup_active');
   const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+  const errorInputElements = editPopupBox.querySelectorAll('.popup__input');
+  const errorBottomInactive = editPopupBox.querySelectorAll('.popup__submit');
   errorElements.forEach((errorElement) => {
     errorElement.classList.remove('popup__input-error_active');
+  });
+  errorInputElements.forEach((errorInputElement) => {
+    errorInputElement.classList.remove('popup__input_type_error');
+  });
+  errorBottomInactive.forEach((errorBottomInactive) => {
+    errorBottomInactive.classList.remove('popup__submit_inactive');
   });
 });
 
 popupOverlay.addEventListener('click', () => {
   editPopupBox.classList.remove('popup_active');
   const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+  const errorInputElements = editPopupBox.querySelectorAll('.popup__input');
+  const errorBottomInactive = editPopupBox.querySelectorAll('.popup__submit');
   errorElements.forEach((errorElement) => {
     errorElement.classList.remove('popup__input-error_active');
   });
+  errorInputElements.forEach((errorInputElement) => {
+    errorInputElement.classList.remove('popup__input_type_error');
+  });
+  errorBottomInactive.forEach((errorBottomInactive) => {
+    errorBottomInactive.classList.remove('popup__submit_inactive');
+  });
+});
+
+const closePopupEsc = () => {
+  editPopupBox.classList.remove('popup_active');
+  const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+  const errorInputElements = editPopupBox.querySelectorAll('.popup__input');
+  const errorBottomInactive = editPopupBox.querySelectorAll('.popup__submit');
+  errorElements.forEach((errorElement) => {
+    errorElement.classList.remove('popup__input-error_active');
+  });
+  errorInputElements.forEach((errorInputElement) => {
+    errorInputElement.classList.remove('popup__input_type_error');
+  });
+  errorBottomInactive.forEach((errorBottomInactive) => {
+    errorBottomInactive.classList.remove('popup__submit_inactive');
+  });
+};
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closePopupEsc();
+  }
 });
 
 
