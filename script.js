@@ -10,6 +10,7 @@ const editAuthorPopupForm = document.querySelector('.popup__form');
 const popupOverlay = document.querySelector('.popup__overlay');
 
 editProfileButton.addEventListener('click', () => {
+  openPopup();
   editPopupBox.classList.add('popup_active');
   authorNewName.value = authorName.textContent;
   authorNewWork.value = authorWork.textContent;
@@ -25,24 +26,6 @@ editAuthorPopupForm.addEventListener('submit', (event) => {
 });
 
 
-closePopupButton.addEventListener('click', () => {
-  editPopupBox.classList.remove('popup_active');
-});
-
-popupOverlay.addEventListener('click', () => {
-  editPopupBox.classList.remove('popup_active');
-});
-
-//press esc
-const closePopup = () => {
-  editPopupBox.classList.remove('popup_active');
-};
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closePopup();
-  }
-});
-
 
 closePopupButton.addEventListener('click', () => {
   editPopupBox.classList.remove('popup_active');
@@ -76,27 +59,30 @@ popupOverlay.addEventListener('click', () => {
   });
 });
 
-const closePopupEsc = () => {
-  editPopupBox.classList.remove('popup_active');
-  const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
-  const errorInputElements = editPopupBox.querySelectorAll('.popup__input');
-  const errorBottomInactive = editPopupBox.querySelectorAll('.popup__submit');
-  errorElements.forEach((errorElement) => {
-    errorElement.classList.remove('popup__input-error_active');
-  });
-  errorInputElements.forEach((errorInputElement) => {
-    errorInputElement.classList.remove('popup__input_type_error');
-  });
-  errorBottomInactive.forEach((errorBottomInactive) => {
-    errorBottomInactive.classList.remove('popup__submit_inactive');
-  });
-};
+const openPopup = () => {
+  const closePopupEsc = () => {
+    editPopupBox.classList.remove('popup_active');
+    const errorElements = editPopupBox.querySelectorAll('.popup__input-error');
+    const errorInputElements = editPopupBox.querySelectorAll('.popup__input');
+    const errorBottomInactive = editPopupBox.querySelectorAll('.popup__submit');
+    errorElements.forEach((errorElement) => {
+      errorElement.classList.remove('popup__input-error_active');
+    });
+    errorInputElements.forEach((errorInputElement) => {
+      errorInputElement.classList.remove('popup__input_type_error');
+    });
+    errorBottomInactive.forEach((errorBottomInactive) => {
+      errorBottomInactive.classList.remove('popup__submit_inactive');
+    });
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      closePopupEsc();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closePopupEsc();
-  }
-});
+};
 
 
 
@@ -134,7 +120,6 @@ const initialCards = [
 
 // Element card code to fungction with eny alse
 function selectPicture() {
-  console.log(this.parentElement);
   const pictureName = this.parentElement.querySelector('.element__title');
   console.log(pictureName);
 }
@@ -192,23 +177,6 @@ const portfolioTitle = document.querySelector('input[name="form__input-name"]');
 const portfolioForm = document.querySelector('.forms__form');
 const submitButton = document.querySelector('.forms__submit');
 const popupForms = document.querySelector('.forms__overlay');
-
-
-  portfolioForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    // Get the input values
-    const urlValue = portfolioImage.value.trim();
-    const nameValue = portfolioTitle.value.trim();
-    submitButton.classList.remove('forms__submit-active');
-    // Display the input values
-    portfolioImage.textContent = urlValue;
-    portfolioTitle.textContent = nameValue;
-  });
-  
-  
-  portfolioAddButton.addEventListener('click', () => {
-    portfolioPopupBox.classList.add('forms_active');
-  });
   
   
 portfolioForm.addEventListener('submit', function(event) {
@@ -223,6 +191,7 @@ portfolioForm.addEventListener('submit', function(event) {
 
 // show or close popup form
 portfolioAddButton.addEventListener('click', () => {
+  openFormsPopup();
   portfolioPopupBox.classList.add('forms_active');
 });
 
@@ -236,14 +205,18 @@ popupForms.addEventListener('click', (event) => {
 });
 
 //press esc
-const closePopupForm = () => {
-  portfolioPopupBox.classList.remove('forms_active');
+const openFormsPopup = () => {
+  const closePopupForm = () => {
+    portfolioPopupBox.classList.remove('forms_active');
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      closePopupForm();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
 };
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closePopupForm();
-  }
-});
 
 
 
@@ -263,6 +236,18 @@ elements.forEach(element => {
     popupImageFile.src = image.src;
     popupImageTitle.textContent = title.textContent;
     popupImage.classList.add('zoom_active');
+
+    const closePopupZoom = () => {
+      popupImage.classList.remove('zoom_active');
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closePopupZoom();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
   });
 });
 
@@ -274,14 +259,6 @@ zoomOverlay.addEventListener('click', () => {
   popupImage.classList.remove('zoom_active');
 });
 
-const closePopupZoom = () => {
-  popupImage.classList.remove('zoom_active');
-};
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closePopupZoom();
-  }
-});
 
 // Delete element
 const deleteButtons = document.querySelectorAll('.element__delete');
