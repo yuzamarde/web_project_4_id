@@ -74,6 +74,8 @@ const openPopup = () => {
     errorBottomInactive.forEach((errorBottomInactive) => {
       errorBottomInactive.classList.remove('popup__submit_inactive');
     });
+
+    document.removeEventListener('keydown', handleKeyDown);
   };
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {
@@ -208,6 +210,7 @@ popupForms.addEventListener('click', (event) => {
 const openFormsPopup = () => {
   const closePopupForm = () => {
     portfolioPopupBox.classList.remove('forms_active');
+    document.removeEventListener('keydown', handleKeyDown);
   };
 
   const handleKeyDown = (event) => {
@@ -217,6 +220,8 @@ const openFormsPopup = () => {
   };
   document.addEventListener('keydown', handleKeyDown);
 };
+
+
 
 
 
@@ -237,7 +242,8 @@ elements.forEach(element => {
     popupImageTitle.textContent = title.textContent;
     popupImage.classList.add('zoom_active');
 
-    const closePopupZoom = () => {
+    const closePopupZoom = () => { 
+      document.removeEventListener('keydown', handleKeyDown);
       popupImage.classList.remove('zoom_active');
     };
 
@@ -246,7 +252,6 @@ elements.forEach(element => {
         closePopupZoom();
       }
     };
-
     document.addEventListener('keydown', handleKeyDown);
   });
 });
