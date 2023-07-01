@@ -152,6 +152,7 @@ function createCard(cardData) {
   cardImage.addEventListener('click', () => {
     popupImageFile.src = cardData.link;
     popupImageTitle.textContent = cardData.name;
+    openFormsZoom(popupImage);
     popupImage.classList.add('zoom_active');
   });
   deleteButton.addEventListener('click', deleteElement);
@@ -240,19 +241,8 @@ elements.forEach(element => {
   image.addEventListener('click', () => {
     popupImageFile.src = image.src;
     popupImageTitle.textContent = title.textContent;
+    openFormsZoom(popupImage);
     popupImage.classList.add('zoom_active');
-
-    const closePopupZoom = () => { 
-      document.removeEventListener('keydown', handleKeyDown);
-      popupImage.classList.remove('zoom_active');
-    };
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        closePopupZoom();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
   });
 });
 
@@ -264,6 +254,18 @@ zoomOverlay.addEventListener('click', () => {
   popupImage.classList.remove('zoom_active');
 });
 
+const openFormsZoom = () => {
+  const closePopupZoom = () => {
+    popupImage.classList.remove('zoom_active');
+    document.removeEventListener('keydown', handleKeyDown);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      closePopupZoom();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
+};
 
 // Delete element
 const deleteButtons = document.querySelectorAll('.element__delete');
