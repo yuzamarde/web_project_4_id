@@ -47,13 +47,3 @@ portfolioForm.addEventListener('submit', function(event) {
   portfolioImage.value = '';
   portfolioTitle.value = '';
 });
-
-
-// Delete element
-const deleteButtons = document.querySelectorAll('.element__delete');
-
-deleteButtons.forEach((deleteButton) => {
-  deleteButton.addEventListener('click', deleteElement);
-});
-
-
