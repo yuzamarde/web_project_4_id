@@ -47,4 +47,3 @@ portfolioForm.addEventListener('submit', function(event) {
   portfolioImage.value = '';
   portfolioTitle.value = '';
 });
-
