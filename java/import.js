@@ -1,4 +1,4 @@
-import { Card } from "./Card";
+import { Card } from "../java/Card";
 
 const container = document.querySelector('.container');
 const initialCards = [

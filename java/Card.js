@@ -1,5 +1,4 @@
 const template = document.querySelector('.elements');
-
 export class Card {
   constructor(cardData, templateSelector) {
     this._cardData = cardData;
@@ -16,9 +15,6 @@ export class Card {
     this._cardButton.addEventListener('click', this._activeLike);
     this._cardImage.addEventListener('click', this._openPopup); 
     this._deleteButton.addEventListener('click', this._deleteElement);
-
-    // Add the card element to the DOM
-    container.appendChild(this._cardElement);
   }
 
   _getTemplate() {
@@ -51,3 +47,4 @@ export class Card {
   }
 }
 
+export default Card;
