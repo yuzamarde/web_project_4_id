@@ -27,34 +27,35 @@ export const initialCards = [
   }
 ];
 
-function addCardToContainer(cardData) {
-    const newCard = new Card(cardData);
-    const firstElement = container.firstChild;
-    container.insertBefore(newCard.generateCard(), firstElement);
-  }
+
+// function addCardToContainer(cardData) {
+//     const newCard = new Card(cardData);
+//     const firstElement = container.firstChild;
+//     container.insertBefore(newCard.generateCard(), firstElement);
+//   }
   
-  // Function to initialize cards from initial data
-  function initializeCards() {
-    initialCards.forEach(cardData => {
-      addCardToContainer(cardData);
-    });
-  }
+  // // Function to initialize cards from initial data
+  // function initializeCards() {
+  //   initialCards.forEach(cardData => {
+  //     addCardToContainer(cardData);
+  //   });
+  // }
   
-  // Call the function to initialize cards when the DOM is ready
-  document.addEventListener("DOMContentLoaded", initializeCards);
+  // // Call the function to initialize cards when the DOM is ready
+  // document.addEventListener("DOMContentLoaded", initializeCards);
   
-  // Delete Element
-  const deleteButtons = document.querySelectorAll('.element__delete');
+  // // Delete Element
+  // const deleteButtons = document.querySelectorAll('.element__delete');
   
-  function deleteElement(event) {
-    const deleteButton = event.currentTarget;
-    const card = deleteButton.closest('.element');
-    const clonedCard = card.cloneNode(true);
-    card.remove();
-    container.appendChild(clonedCard);
-  }
+  // function deleteElement(event) {
+  //   const deleteButton = event.currentTarget;
+  //   const card = deleteButton.closest('.element');
+  //   const clonedCard = card.cloneNode(true);
+  //   card.remove();
+  //   container.appendChild(clonedCard);
+  // }
   
-  deleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener('click', deleteElement);
-  });
+  // deleteButtons.forEach((deleteButton) => {
+  //   deleteButton.addEventListener('click', deleteElement);
+  // });
 
