@@ -93,42 +93,42 @@ closePopupButton.addEventListener('click', () => {
   
   
   // image popup
-  const elements = document.querySelectorAll('.element');
-  const popupImage = document.querySelector('.zoom');
-  const popupImageFile = document.querySelector('.zoom__file');
-  const popupImageTitle = document.querySelector('.zoom__title');
-  const popupImageClose = document.querySelector('.zoom__close');
-  const zoomOverlay = document.querySelector('.zoom__overlay');
+  // const elements = document.querySelectorAll('.element');
+  // const popupImage = document.querySelector('.zoom');
+  // const popupImageFile = document.querySelector('.zoom__file');
+  // const popupImageTitle = document.querySelector('.zoom__title');
+  // const popupImageClose = document.querySelector('.zoom__close');
+  // const zoomOverlay = document.querySelector('.zoom__overlay');
   
-  elements.forEach(element => {
-    const image = element.querySelector('.element__image');
-    const title = element.querySelector('.element__title');
+  // elements.forEach(element => {
+  //   const image = element.querySelector('.element__image');
+  //   const title = element.querySelector('.element__title');
   
-    image.addEventListener('click', () => {
-      popupImageFile.src = image.src;
-      popupImageTitle.textContent = title.textContent;
-      openFormsZoom(popupImage);
-      popupImage.classList.add('zoom_active');
-    });
-  });
+  //   image.addEventListener('click', () => {
+  //     popupImageFile.src = image.src;
+  //     popupImageTitle.textContent = title.textContent;
+  //     openFormsZoom(popupImage);
+  //     popupImage.classList.add('zoom_active');
+  //   });
+  // });
   
-  popupImageClose.addEventListener('click', () => {
-    popupImage.classList.remove('zoom_active');
-  });
+  // popupImageClose.addEventListener('click', () => {
+  //   popupImage.classList.remove('zoom_active');
+  // });
   
-  zoomOverlay.addEventListener('click', () => {
-    popupImage.classList.remove('zoom_active');
-  });
+  // zoomOverlay.addEventListener('click', () => {
+  //   popupImage.classList.remove('zoom_active');
+  // });
   
-  const openFormsZoom = () => {
-    const closePopupZoom = () => {
-      popupImage.classList.remove('zoom_active');
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        closePopupZoom();
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-  };
+  // const openFormsZoom = () => {
+  //   const closePopupZoom = () => {
+  //     popupImage.classList.remove('zoom_active');
+  //     document.removeEventListener('keydown', handleKeyDown);
+  //   };
+  //   const handleKeyDown = (event) => {
+  //     if (event.key === 'Escape') {
+  //       closePopupZoom();
+  //     }
+  //   };
+  //   document.addEventListener('keydown', handleKeyDown);
+  // };

@@ -60,10 +60,7 @@ export default class Card {
     }
   
     _openPopup = () => {
-      popupImageFile.src = this._cardData.link;
-      popupImageTitle.textContent = this._cardData.name;
-      openFormsZoom(popupImage);
-      popupImage.classList.add('zoom_active');
+      
     }
   
     _deleteElement = () => {
@@ -74,6 +71,8 @@ export default class Card {
       return this._cardElement;
     }
   }
+
+  
   
    // Create and add cards to the container using the Card class
    initialCards.forEach(cardData => {
