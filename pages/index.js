@@ -1,4 +1,4 @@
-import Card from "../components/Card.js";
+// import Card from "../components/Card.js";
 import PortfolioFormHandler from "../components/PopupWithForm.js";
 import { container, initialCards } from "../components/Card.js";
 import ImagePopup from "../components/PopupWithImage.js";
@@ -24,12 +24,12 @@ import ProfileFormValidator from '../components/ProfileValidator.js';
   const imagePopup = new ImagePopup();
 
 //Card
-  function addCardToContainerFn(cardData) {
-    const newCard = new Card(cardData);
-    container.prepend(newCard.generateCard());
-  }
+  // function addCardToContainerFn(cardData) {
+  //   const newCard = new Card(cardData);
+  //   container.prepend(newCard.generateCard());
+  // }
 //popup add new card
-  portfolioFormHandler.addCardToContainerFn = addCardToContainerFn; 
+  // portfolioFormHandler.addCardToContainerFn = addCardToContainerFn; 
     
     portfolioAddButton.addEventListener("click", () => {
       portfolioFormHandler.openPopupBox();
@@ -43,9 +43,4 @@ import ProfileFormValidator from '../components/ProfileValidator.js';
     popupForms.addEventListener("click", () => {
       portfolioFormHandler.closePopupBox(); 
     });
-
-
-
-  // Add the cloned card and set up event listeners for it
-
 

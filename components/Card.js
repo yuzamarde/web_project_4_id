@@ -1,3 +1,4 @@
+import PopupWithImage from './PopupWithImage.js';
 export const template = document.querySelector('.elements');
 export const container = document.querySelector('.container');
 export const initialCards = [
@@ -59,9 +60,12 @@ export default class Card {
       evt.target.classList.toggle('element__button-active');
     }
   
-  _openPopup(imagePopup) {
-    // imagePopup._handleImageClick(this._cardImage, this._cardTitle);
-  }
+    _openPopup() {
+      if (!this._imagePopup) {
+        this._imagePopup = new PopupWithImage();
+      }
+
+    }
   
     _deleteElement = () => {
       this._cardElement.remove();

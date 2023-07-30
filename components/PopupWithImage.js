@@ -43,18 +43,6 @@ export default class ImagePopup {
     _openFormsZoom() {
       document.addEventListener('keydown', this.handleKeyDown);
     }
-
-     addNewCard(card) {
-    this.elements.push(card);
-    this._setUpEventListenersForCard(card);
-    }
-    addNewCard(card) {
-      const image = card.querySelector('.element__image');
-      const title = card.querySelector('.element__title');
-  
-      image.addEventListener('click', () => this._handleImageClick(image, title));
-      this.elements.push(card);
-    }
   }
 
   
