@@ -1,50 +1,52 @@
-// popup-edit profile
-const editProfileButton = document.querySelector('.profile__edit-btn');
-const closePopupButton = document.querySelector('.popup__close');
-const editPopupBox = document.querySelector('.popup');
-const authorNewName = document.querySelector('input[name="popup__input-name"]');
-const authorNewWork = document.querySelector('input[name="popup__input-work"]');
-const authorName = document.querySelector('.profile__name');
-const authorWork = document.querySelector('.profile__work');
-const editAuthorPopupForm = document.querySelector('.popup__form');
-const popupOverlay = document.querySelector('.popup__overlay');
+// Popup.js
+export default class Popup {
+  constructor() {
+    this.editPopupBox = document.querySelector('.popup');
+    this.popupOverlay = document.querySelector('.popup__overlay');
+    this.closePopupButton = document.querySelector('.popup__close');
+    this.errorElements = this.editPopupBox.querySelectorAll('.popup__input-error');
+    this.errorInputElements = this.editPopupBox.querySelectorAll('.popup__input');
+    this.errorBottomInactive = this.editPopupBox.querySelectorAll('.popup__submit');
 
-editProfileButton.addEventListener('click', () => {
-  openPopup();
-  editPopupBox.classList.add('popup_active');
-  authorNewName.value = authorName.textContent;
-  authorNewWork.value = authorWork.textContent;
-});
+    this.closePopupButton.addEventListener('click', () => this.closePopup());
+    this.popupOverlay.addEventListener('click', () => this.closePopup());
+  }
 
-editAuthorPopupForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-  authorName.textContent = authorNewName.value;
-  authorWork.textContent = authorNewWork.value;
-  editPopupBox.classList.remove('popup_active');
-  authorNewName.value = '';
-  authorNewWork.value = '';
-});
+  openPopup() {
+    this.editPopupBox.classList.add('popup_active');
+    this.addEscCloseListener();
+  }
 
+  closePopup() {
+    this.editPopupBox.classList.remove('popup_active');
+    this.removeEscCloseListener();
+    this.clearErrors();
+  }
 
-// portfolio item add
-const page = document.querySelector(".page");
-const portfolioAddButton = document.querySelector('.profile__add-btn');
-const portfolioCloseButton = document.querySelector('.forms__close');
-const portfolioPopupBox = document.querySelector('.forms');
-const portfolioImage = document.querySelector('input[name="form__input-url"]');
-const portfolioTitle = document.querySelector('input[name="form__input-name"]');
-const portfolioForm = document.querySelector('.forms__form');
-const submitButton = document.querySelector('.forms__submit');
-const popupForms = document.querySelector('.forms__overlay');
-  
-  
-portfolioForm.addEventListener('submit', function(event) {
-  event.preventDefault();
-  const urlValue = portfolioImage.value.trim();
-  const nameValue = portfolioTitle.value.trim();
-  portfolioPopupBox.classList.remove('forms_active');
-  addCardToContainer({ name: nameValue, link: urlValue });
-  portfolioImage.value = '';
-  portfolioTitle.value = '';
-});
+  addEscCloseListener() {
+    this.handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        this.closePopup();
+      }
+    };
+    document.addEventListener('keydown', this.handleKeyDown);
+  }
 
+  removeEscCloseListener() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  clearErrors() {
+    this.errorElements.forEach((errorElement) => {
+      errorElement.classList.remove('popup__input-error_active');
+    });
+
+    this.errorInputElements.forEach((errorInputElement) => {
+      errorInputElement.classList.remove('popup__input_type_error');
+    });
+
+    this.errorBottomInactive.forEach((errorBottomInactive) => {
+      errorBottomInactive.classList.remove('popup__submit_inactive');
+    });
+  }
+}

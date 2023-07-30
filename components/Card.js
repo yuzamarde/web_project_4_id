@@ -28,7 +28,7 @@ export const initialCards = [
 ];
 
 export default class Card {
-    constructor(cardData) {
+  constructor(cardData, imagePopup) {
       this._cardData = cardData;
       this._cardElement = this._getTemplate();
       this._cardImage = this._cardElement.querySelector('.element__image');
@@ -59,9 +59,9 @@ export default class Card {
       evt.target.classList.toggle('element__button-active');
     }
   
-    _openPopup = () => {
-      
-    }
+  _openPopup(imagePopup) {
+    // imagePopup._handleImageClick(this._cardImage, this._cardTitle);
+  }
   
     _deleteElement = () => {
       this._cardElement.remove();
@@ -71,8 +71,6 @@ export default class Card {
       return this._cardElement;
     }
   }
-
-  
   
    // Create and add cards to the container using the Card class
    initialCards.forEach(cardData => {

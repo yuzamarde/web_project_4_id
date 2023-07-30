@@ -39,6 +39,12 @@ export default class PortfolioFormHandler {
       this.formElement.addEventListener('click', (event) => {
         event.stopPropagation();
       });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          this.closePopupBox();
+        }
+      });
     }
   
     // Open the popup
@@ -50,6 +56,7 @@ export default class PortfolioFormHandler {
     closePopupBox() {
       this.popupBox.classList.remove('forms_active');
     }
+
   
     // Handle form submission
     handleSubmit(event) {

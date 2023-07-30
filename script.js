@@ -27,24 +27,24 @@ editAuthorPopupForm.addEventListener('submit', (event) => {
 
 
 // // portfolio item add
-// // const page = document.querySelector(".page");
-// const portfolioAddButton = document.querySelector('.profile__add-btn');
-// const portfolioCloseButton = document.querySelector('.forms__close');
-// // const portfolioPopupBox = document.querySelector('.forms');
-// // const portfolioImage = document.querySelector('input[name="form__input-url"]');
-// // const portfolioTitle = document.querySelector('input[name="form__input-name"]');
-// // const portfolioForm = document.querySelector('.forms__form');
-// // const submitButton = document.querySelector('.forms__submit');
-// const popupForms = document.querySelector('.forms__overlay');
+const page = document.querySelector(".page");
+const portfolioAddButton = document.querySelector('.profile__add-btn');
+const portfolioCloseButton = document.querySelector('.forms__close');
+const portfolioPopupBox = document.querySelector('.forms');
+const portfolioImage = document.querySelector('input[name="form__input-url"]');
+const portfolioTitle = document.querySelector('input[name="form__input-name"]');
+const portfolioForm = document.querySelector('.forms__form');
+const submitButton = document.querySelector('.forms__submit');
+const popupForms = document.querySelector('.forms__overlay');
   
   
-// portfolioForm.addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   const urlValue = portfolioImage.value.trim();
-//   const nameValue = portfolioTitle.value.trim();
-//   portfolioPopupBox.classList.remove('forms_active');
-//   addCardToContainer({ name: nameValue, link: urlValue });
-//   portfolioImage.value = '';
-//   portfolioTitle.value = '';
-// });
+portfolioForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const urlValue = portfolioImage.value.trim();
+  const nameValue = portfolioTitle.value.trim();
+  portfolioPopupBox.classList.remove('forms_active');
+  addCardToContainer({ name: nameValue, link: urlValue });
+  portfolioImage.value = '';
+  portfolioTitle.value = '';
+});
 
