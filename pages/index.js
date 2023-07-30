@@ -8,13 +8,14 @@ import {
     popupForms,
   } from "../components/PopupWithForm.js";
 import Profile from '../components/UserInfo.js';
+import FormValidator from '../components/FormValidator.js';
+import ProfileFormValidator from '../components/ProfileValidator.js';
+
 
 // Profile
 // add new profile
   const userProfile = new Profile();
 // popup utilz
-
-
 
 
 
