@@ -1,0 +1,15 @@
+.forms__set{
+    border: none;
+    padding: 0;
+    margin: 0;
+    pointer-events: all;
+    display: grid;
+    gap: 20px;
+  }
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+
+}

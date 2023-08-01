@@ -1,0 +1,26 @@
+.profile {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 180px 60% auto;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 768px) {
+    .profile {
+        grid-template-columns: auto 50% auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile {
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: center;
+        gap: 20px;
+    }
+}

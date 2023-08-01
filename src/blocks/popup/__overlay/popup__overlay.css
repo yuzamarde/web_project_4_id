@@ -1,0 +1,17 @@
+.popup__overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+@media screen and (max-width: 768px) {
+    .popup__overlay {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__overlay {
+        width: 270px;
+    }
+}
