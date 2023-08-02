@@ -1,94 +1,92 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>web_brief_sprint_4_id</title>
-  <link rel="stylesheet" href="./pages/index.css">
+  <title>Webpack</title>
 </head>
+
 <body>
-    <header class="header">
-        <div class="header__logo">
-            <img src="./images/Vector.svg" alt="header logo">
-        </div>
-    </header>
-  <main class="page">
-    <section class="profile">
-        <img src="./images/image.jpg" class="profile__image" alt="profile">
-          <div class="profile__profile-info">
-              <h1 class="profile__name">Jacques Cousteau </h1>
-              <button class="profile__edit-btn" type="button" ></button>
-              <p class="profile__work">Penjelajah</p>
-          </div>
-        <button class="profile__add-btn" type="button">-</button>
-    </section>
-    <template class="elements">
-      <section class="element">
-        <button class="element__delete"></button>
-        <img src="./images/kirill-pershin-1088404-unsplash.jpg" class="element__image" alt="element image">
-        <div class="element__group">
-            <h2 class="element__title">Lembah </h2>
-            <button class="element__button" type="button"></button>
-        </div>
-      </section>
-    </template>
-
-    <div class="container"></div>
-
-    <section class="popup">
-      <div class="popup__overlay"></div>
-      <button class="popup__close" type="button"><img src="./images/Close.svg" alt="close image"></button>
-      <form class="popup__form" name="popup__profile" novalidate>
-        <h2 class="popup__profile-title">Edit Name</h2>
-        <fieldset class="popup__set">
-          <label class="popup__fill">
-            <input type="text" class="popup__input" name="popup__input-name" id="popup__input-name" value="Jacques Cousteau" required minlength="2">
-            <span class="popup__input-error popup__input-name-error"></span>
-          </label>
-          <label class="popup__fill">
-            <input type="text" class="popup__input" name="popup__input-work" id="popup__input-work" value="Penjelajah" required minlength="2">
-            <span class="popup__input-error popup__input-work-error"></span>
-          </label>
-        </fieldset>
-        <button type="submit" class="popup__submit popup__button button" name="send">Simpan</button>
-      </form>
-    </section>
-
-    <section class="forms">
-      <div class="forms__overlay"></div>
-      <button class="forms__close" type="button"><img src="./images/Close.svg" alt="close image"></button>
-      <form class="forms__form" name="form__profile" novalidate>
-        <h2 class="forms__title">Tempat baru</h2>
-        <fieldset class="forms__set">
-          <label class="forms__fill">
-            <input type="text" class="forms__input" name="form__input-name" id="forms__input-name" placeholder="name" required minlength="2">
-            <span class="forms__input-error forms__input-name-error" ></span>
-          </label>
-          <label class="forms__fill">
-            <input type="url" class="forms__input" name="form__input-url" id="forms__input-url" placeholder="Image url" required minlength="2"> 
-            <span class="forms__input-error forms__input-url-error"></span>
-        </label>
-        </fieldset>
-        <button class="forms__submit forms__button button" type="submit" name="send">Simpan</button>
-      </form>
-    </section>
-
-    <section class="zoom">
-      <button class="zoom__close"><img src="./images/Close.svg" alt="close image"></button>
-      <div class="zoom__content">
-        <img src="./images/kirill-pershin-1088404-unsplash.jpg" class="zoom__file" alt="popup image">
-        <h2 class="zoom__title">name</h2>
+  <header class="header">
+      <div class="header__logo">
+          <img src="<%= require('./images/Vector.svg')%>" alt="header logo">
       </div>
-      <div class="zoom__overlay"></div>
+  </header>
+<main class="page">
+  <section class="profile">
+      <img src="<%= require('./images/image.jpg')%>" class="profile__image" alt="profile">
+        <div class="profile__profile-info">
+            <h1 class="profile__name">Jacques Cousteau </h1>
+            <button class="profile__edit-btn" type="button" ></button>
+            <p class="profile__work">Penjelajah</p>
+        </div>
+      <button class="profile__add-btn" type="button">-</button>
+  </section>
+  <template class="elements">
+    <section class="element">
+      <button class="element__delete"></button>
+      <img src="<%= require('./images/kirill-pershin-1088404-unsplash.jpg')%>" class="element__image" alt="element image">
+      <div class="element__group">
+          <h2 class="element__title">Lembah </h2>
+          <button class="element__button" type="button"></button>
+      </div>
     </section>
+  </template>
 
-    <footer class="footer">
-      <p class="footer__copyright">© 2023. yuza</p>
-    </footer>
-  </main>
-  <script type="module" src="./index.js"></script>
+  <div class="container"></div>
 
- 
-  <!-- <script src="./components/Card.js"></script> -->
+  <section class="popup">
+    <div class="popup__overlay"></div>
+    <button class="popup__close" type="button"><img src="<%= require('./images/Close.svg')%>" alt="close image"></button>
+    <form class="popup__form" name="popup__profile" novalidate>
+      <h2 class="popup__profile-title">Edit Name</h2>
+      <fieldset class="popup__set">
+        <label class="popup__fill">
+          <input type="text" class="popup__input" name="popup__input-name" id="popup__input-name" value="Jacques Cousteau" required minlength="2">
+          <span class="popup__input-error popup__input-name-error"></span>
+        </label>
+        <label class="popup__fill">
+          <input type="text" class="popup__input" name="popup__input-work" id="popup__input-work" value="Penjelajah" required minlength="2">
+          <span class="popup__input-error popup__input-work-error"></span>
+        </label>
+      </fieldset>
+      <button type="submit" class="popup__submit popup__button button" name="send">Simpan</button>
+    </form>
+  </section>
+
+  <section class="forms">
+    <div class="forms__overlay"></div>
+    <button class="forms__close" type="button"><img src="<%= require('./images/Close.svg')%>" alt="close image"></button>
+    <form class="forms__form" name="form__profile" novalidate>
+      <h2 class="forms__title">Tempat baru</h2>
+      <fieldset class="forms__set">
+        <label class="forms__fill">
+          <input type="text" class="forms__input" name="form__input-name" id="forms__input-name" placeholder="name" required minlength="2">
+          <span class="forms__input-error forms__input-name-error" ></span>
+        </label>
+        <label class="forms__fill">
+          <input type="url" class="forms__input" name="form__input-url" id="forms__input-url" placeholder="Image url" required minlength="2"> 
+          <span class="forms__input-error forms__input-url-error"></span>
+      </label>
+      </fieldset>
+      <button class="forms__submit forms__button button" type="submit" name="send">Simpan</button>
+    </form>
+  </section>
+
+  <section class="zoom">
+    <button class="zoom__close"><img src="<%= require('./images/Close.svg')%>" alt="close image"></button>
+    <div class="zoom__content">
+      <img src="<%= require('./images/kirill-pershin-1088404-unsplash.jpg')%>"
+       class="zoom__file" alt="popup image">
+      <h2 class="zoom__title">name</h2>
+    </div>
+    <div class="zoom__overlay"></div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer__copyright">© 2023. yuza</p>
+  </footer>
+</main>
 </body>
 </html>
+<!-- kita membungkus masing-masing elemen dalam elemen div sehingga muncul di baris berikutnya -->
