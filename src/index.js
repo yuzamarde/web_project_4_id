@@ -5,7 +5,7 @@ import {
     portfolioFormHandler,
     imagePopup,
     addCardToContainerFn,
-  } from './pages/index.js'; 
+  } from '/src/pages/index.js'; 
 
 
 // const numbers = [2, 3, 5];
