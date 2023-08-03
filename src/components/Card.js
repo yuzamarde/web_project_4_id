@@ -38,8 +38,6 @@ export default class Card {
       this._deleteButton = this._cardElement.querySelector('.element__delete');
   
       this._setCardContent();
-      // this._cardImage.src = this._cardData.link;
-      // this._cardTitle.innerHTML = this._cardData.name;
   
       this._cardButton.addEventListener('click', this._selectPicture);
       this._cardButton.addEventListener('click', this._activeLike);
@@ -58,7 +56,7 @@ export default class Card {
     }
   
     _setCardTitle(title) {
-      this._cardTitle.textContent = title; // Set text content instead of innerHTML
+      this._cardTitle.textContent = title;
     }
   
     _selectPicture = () => {
