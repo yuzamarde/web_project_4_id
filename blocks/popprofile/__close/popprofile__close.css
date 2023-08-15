@@ -1,0 +1,28 @@
+.popprofile__close {
+    display: flex;
+    cursor: pointer;
+    background: none;
+    justify-content: flex-end;
+    width: 550px;
+    height: 40px;
+    border: none;
+}
+
+.popprofile__close-svg {
+    width: 20px;
+    max-height: 20px;
+}
+@media screen and (max-width: 768px) {
+    .popprofile__close {
+        width: 66%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popprofile__close {
+        margin-bottom: 10px;
+        padding: 0px;
+        width: 0px;
+        margin-right: -275px;
+    }
+}
