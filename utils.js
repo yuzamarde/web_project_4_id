@@ -132,3 +132,38 @@ const openFormsZoom = () => {
   };
   document.addEventListener('keydown', handleKeyDown);
 };
+
+
+
+// popprofile change
+popprofileAddButton.addEventListener('click', () => {
+  popprofileFormsPopup();
+  popprofilePopupBox.classList.add('popprofile_active');
+});
+
+popprofileCloseButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  popprofilePopupBox.classList.remove('popprofile_active');
+});
+
+popprofileForms.addEventListener('click', (event) => {
+  event.preventDefault();
+  popprofilePopupBox.classList.remove('popprofile_active');
+});
+
+//press esc
+const popprofileFormsPopup = () => {
+  const closePopupForm = () => {
+    popprofilePopupBox.classList.remove('popprofile_active');
+    document.removeEventListener('keydown', handleKeyDown);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      closePopupForm();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
+};
+
+

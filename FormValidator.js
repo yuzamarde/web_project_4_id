@@ -1,148 +1,219 @@
 class FormValidator {
-    constructor(formElement) {
-      this.formElement = formElement;
-      this.inputList = Array.from(formElement.querySelectorAll(".forms__input"));
-      this.buttonElement = formElement.querySelector(".forms__submit");
-      this.errorElements = Array.from(formElement.querySelectorAll(".forms__input-error"));
-    }
-  
-    showInputError(inputElement, errorMessage) {
-      const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
-      inputElement.classList.add("forms__input_type_error");
-      errorElement.textContent = errorMessage;
-      errorElement.classList.add("forms__input-error_active");
-    }
-  
-    hideInputError(inputElement) {
-      const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
-      inputElement.classList.remove("forms__input_type_error");
-      errorElement.classList.remove("forms__input-error_active");
-      errorElement.textContent = "";
-    }
-  
-    checkInputValidity(inputElement) {
-      if (!inputElement.validity.valid) {
-        this.showInputError(inputElement, inputElement.validationMessage);
-      } else {
-        this.hideInputError(inputElement);
-      }
-    }
-  
-    hasInvalidInput() {
-      return this.inputList.some((inputElement) => !inputElement.validity.valid);
-    }
-  
-    toggleButtonState() {
-      if (this.hasInvalidInput()) {
-        this.buttonElement.classList.add("forms__submit_inactive");
-        this.buttonElement.disabled = true;
-      } else {
-        this.buttonElement.classList.remove("forms__submit_inactive");
-        this.buttonElement.disabled = false;
-      }
-    }
-  
-    setInputListeners() {
-      this.inputList.forEach((inputElement) => {
-        inputElement.addEventListener("input", () => {
-          this.checkInputValidity(inputElement);
-          this.toggleButtonState();
-        });
-      });
-    }
-  
-    setSubmitListener() {
-      this.formElement.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        this.buttonElement.classList.add("forms__submit_inactive");
-      });
-    }
-  
-    enableFormValidation() {
-      this.setInputListeners();
-      this.setSubmitListener();
-      this.toggleButtonState();
+  constructor(formElement) {
+    this.formElement = formElement;
+    this.inputList = Array.from(formElement.querySelectorAll(".forms__input"));
+    this.buttonElement = formElement.querySelector(".forms__submit");
+    this.errorElements = Array.from(formElement.querySelectorAll(".forms__input-error"));
+  }
+
+  showInputError(inputElement, errorMessage) {
+    const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add("forms__input_type_error");
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add("forms__input-error_active");
+  }
+
+  hideInputError(inputElement) {
+    const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove("forms__input_type_error");
+    errorElement.classList.remove("forms__input-error_active");
+    errorElement.textContent = "";
+  }
+
+  checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this.showInputError(inputElement, inputElement.validationMessage);
+    } else {
+      this.hideInputError(inputElement);
     }
   }
-  
-  // Card form validation
-  const cardForm = new FormValidator(document.querySelector(".forms__form"));
-  cardForm.enableFormValidation();
-  
+
+  hasInvalidInput() {
+    return this.inputList.some((inputElement) => !inputElement.validity.valid);
+  }
+
+  toggleButtonState() {
+    if (this.hasInvalidInput()) {
+      this.buttonElement.classList.add("forms__submit_inactive");
+      this.buttonElement.disabled = true;
+    } else {
+      this.buttonElement.classList.remove("forms__submit_inactive");
+      this.buttonElement.disabled = false;
+    }
+  }
+
+  setInputListeners() {
+    this.inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this.checkInputValidity(inputElement);
+        this.toggleButtonState();
+      });
+    });
+  }
+
+  setSubmitListener() {
+    this.formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this.buttonElement.classList.add("forms__submit_inactive");
+    });
+  }
+
+  enableFormValidation() {
+    this.setInputListeners();
+    this.setSubmitListener();
+    this.toggleButtonState();
+  }
+}
+
+// Card form validation
+const cardForm = new FormValidator(document.querySelector(".forms__form"));
+cardForm.enableFormValidation();
+
 
 
 //popup profile validation
 class ProfileFormValidator {
-    constructor(formElement) {
-      this.formElement = formElement;
-      this.inputList = Array.from(formElement.querySelectorAll(".popup__input"));
-      this.buttonElement = formElement.querySelector(".popup__submit");
-      this.errorElements = Array.from(formElement.querySelectorAll(".popup__input-error"));
-    }
-  
-    showProfileInputError(inputElement, errorMessage) {
-      const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
-      inputElement.classList.add("popup__input_type_error");
-      errorElement.classList.add("popup__input-error_active");
-      errorElement.textContent = errorMessage;
-    }
-  
-    hideProfileInputError(inputElement) {
-      const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
-      inputElement.classList.remove("popup__input_type_error");
-      errorElement.classList.remove("popup__input-error_active");
-      errorElement.textContent = "";
-    }
-  
-    checkInputValidity(inputElement) {
-      if (!inputElement.validity.valid) {
-        this.showProfileInputError(inputElement, inputElement.validationMessage);
-      } else {
-        this.hideProfileInputError(inputElement);
-      }
-    }
-  
-    hasProfileInvalidInput() {
-      return this.inputList.some((inputElement) => !inputElement.validity.valid);
-    }
-  
-    toggleProfileButtonState() {
-      if (this.hasProfileInvalidInput()) {
-        this.buttonElement.classList.add("popup__submit_inactive");
-        this.buttonElement.disabled = true;
-      } else {
-        this.buttonElement.classList.remove("popup__submit_inactive");
-        this.buttonElement.disabled = false;
-      }
-    }
-  
-    setProfileEventListeners() {
-      this.inputList.forEach((inputElement) => {
-        inputElement.addEventListener("input", () => {
-          this.checkInputValidity(inputElement);
-          this.toggleProfileButtonState();
-        });
-      });
-    }
-  
-    setSubmitProfileListener() {
-      this.formElement.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        this.buttonElement.classList.add("popup__submit_inactive");
-      });
-    }
-  
-    enableProfileValidation() {
-      this.setProfileEventListeners();
-      this.setSubmitProfileListener();
-      this.toggleProfileButtonState();
+  constructor(formElement) {
+    this.formElement = formElement;
+    this.inputList = Array.from(formElement.querySelectorAll(".popup__input"));
+    this.buttonElement = formElement.querySelector(".popup__submit");
+    this.errorElements = Array.from(formElement.querySelectorAll(".popup__input-error"));
+  }
+
+  showProfileInputError(inputElement, errorMessage) {
+    const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.add("popup__input_type_error");
+    errorElement.classList.add("popup__input-error_active");
+    errorElement.textContent = errorMessage;
+  }
+
+  hideProfileInputError(inputElement) {
+    const errorElement = this.formElement.querySelector(`.${inputElement.id}-error`);
+    inputElement.classList.remove("popup__input_type_error");
+    errorElement.classList.remove("popup__input-error_active");
+    errorElement.textContent = "";
+  }
+
+  checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this.showProfileInputError(inputElement, inputElement.validationMessage);
+    } else {
+      this.hideProfileInputError(inputElement);
     }
   }
-  
-  const formList = Array.from(document.querySelectorAll(".popup__form"));
-  formList.forEach((formElement) => {
-    const profileFormValidator = new ProfileFormValidator(formElement);
-    profileFormValidator.enableProfileValidation();
-  });
-  
-  
+
+  hasProfileInvalidInput() {
+    return this.inputList.some((inputElement) => !inputElement.validity.valid);
+  }
+
+  toggleProfileButtonState() {
+    if (this.hasProfileInvalidInput()) {
+      this.buttonElement.classList.add("popup__submit_inactive");
+      this.buttonElement.disabled = true;
+    } else {
+      this.buttonElement.classList.remove("popup__submit_inactive");
+      this.buttonElement.disabled = false;
+    }
+  }
+
+  setProfileEventListeners() {
+    this.inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this.checkInputValidity(inputElement);
+        this.toggleProfileButtonState();
+      });
+    });
+  }
+
+  setSubmitProfileListener() {
+    this.formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this.buttonElement.classList.add("popup__submit_inactive");
+    });
+  }
+
+  enableProfileValidation() {
+    this.setProfileEventListeners();
+    this.setSubmitProfileListener();
+    this.toggleProfileButtonState();
+  }
+}
+
+const formList = Array.from(document.querySelectorAll(".popup__form"));
+formList.forEach((formElement) => {
+  const profileFormValidator = new ProfileFormValidator(formElement);
+  profileFormValidator.enableProfileValidation();
+});
+
+//popup popprofile validation
+class PopprofileFormValidator {
+  constructor(formElement) {
+    this.formElement = formElement;
+    this.inputList = Array.from(formElement.querySelectorAll(".popprofile__input"));
+    this.buttonElement = formElement.querySelector(".popprofile__submit");
+    this.errorElements = Array.from(formElement.querySelectorAll(".popprofile__input-error"));
+  }
+
+  showPopprofileInputError(inputElement, errorMessage) {
+    const errorElement = this.formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add("popprofile__input_type_error");
+    errorElement.classList.add("popprofile__input-error_active");
+    errorElement.textContent = errorMessage;
+  }
+
+  hidePopprofileInputError(inputElement) {
+    const errorElement = this.formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove("popprofile__input_type_error");
+    errorElement.classList.remove("popprofile__input-error_active");
+    errorElement.textContent = "";
+  }
+
+  checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this.showPopprofileInputError(inputElement, inputElement.validationMessage);
+    } else {
+      this.hidePopprofileInputError(inputElement);
+    }
+  }
+
+  hasPopprofileInvalidInput() {
+    return this.inputList.some((inputElement) => !inputElement.validity.valid);
+  }
+
+  togglePopprofileButtonState() {
+    if (this.hasPopprofileInvalidInput()) {
+      this.buttonElement.classList.add("popprofile__submit_inactive");
+      this.buttonElement.disabled = true;
+    } else {
+      this.buttonElement.classList.remove("popprofile__submit_inactive");
+      this.buttonElement.disabled = false;
+    }
+  }
+
+  setPopprofileEventListeners() {
+    this.inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this.checkInputValidity(inputElement);
+        this.togglePopprofileButtonState();
+      });
+    });
+  }
+
+  enablePopprofileValidation() {
+    this.formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      if (!this.hasPopprofileInvalidInput()) {
+        this.formElement.submit();
+      }
+    });
+
+    this.setPopprofileEventListeners();
+    this.togglePopprofileButtonState();
+  }
+}
+
+const popprofileList = Array.from(document.querySelectorAll(".popprofile__form"));
+popprofileList.forEach((formElement) => {
+  const popprofileFormValidator = new PopprofileFormValidator(formElement);
+  popprofileFormValidator.enablePopprofileValidation();
+});

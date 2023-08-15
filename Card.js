@@ -34,8 +34,8 @@ class Card {
     this._cardImage = this._cardElement.querySelector('.element__image');
     this._cardTitle = this._cardElement.querySelector('.element__title');
     this._cardButton = this._cardElement.querySelector('.element__button');
-    this._deleteButton = this._cardElement.querySelector('.element__delete');
-
+    // this._deleteButton = this._cardElement.querySelector('.element__delete');
+    this._deleteButton = this._cardElement.querySelector('.delete__submit');
     this._cardImage.src = this._cardData.link;
     this._cardTitle.innerHTML = this._cardData.name;
 
@@ -86,8 +86,8 @@ initialCards.forEach(cardData => {
 });
 
 // Delete Element
-const deleteButtons = document.querySelectorAll('.element__delete');
-
+// const deleteButtons = document.querySelectorAll('.element__delete');
+// const deleteButtons = document.querySelectorAll('.delete__submit');
 function deleteElement(event) {
   const deleteButton = event.currentTarget;
   const card = deleteButton.closest('.element');

@@ -44,6 +44,28 @@
 @import url(../blocks/popup/__set/popup__set.css);
 @import url(../blocks/popup/__fill/popup__fill.css);
 
+/* popprofile */
+@import url(../blocks/popprofile/popprofile.css);
+@import url(../blocks/popprofile/__close/popprofile__close.css);
+@import url(../blocks/popprofile/__overlay/popprofile__overlay.css);
+@import url(../blocks/popprofile/__profile-title/popprofile__profile-title.css);
+@import url(../blocks/popprofile/__submit/popprofile__submit.css);
+@import url(../blocks/popprofile/__input/popprofile__input.css);
+@import url(../blocks/popprofile/__form/popprofile__form.css);
+@import url(../blocks/popprofile/__set/popprofile__set.css);
+@import url(../blocks/popprofile/__fill/popprofile__fill.css);
+
+/* delete */
+@import url(../blocks/delete/delete.css);
+@import url(../blocks/delete/__close/delete__close.css);
+@import url(../blocks/delete/__overlay/delete__overlay.css);
+@import url(../blocks/delete/__profile-title/delete__profile-title.css);
+@import url(../blocks/delete/__submit/delete__submit.css);
+@import url(../blocks/delete/__input/delete__input.css);
+@import url(../blocks/delete/__form/delete__form.css);
+@import url(../blocks/delete/__set/delete__set.css);
+@import url(../blocks/delete/__fill/delete__fill.css);
+
 /* forms */
 @import url(../blocks/forms/forms.css);
 @import url(../blocks/forms/__close/forms__close.css);

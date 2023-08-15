@@ -47,3 +47,24 @@ portfolioForm.addEventListener('submit', function(event) {
   portfolioImage.value = '';
   portfolioTitle.value = '';
 });
+
+
+// popprofile change
+const pagePopprofile = document.querySelector(".page");
+const popprofileAddButton = document.querySelector('.profile__image');
+const popprofileCloseButton = document.querySelector('.popprofile__close');
+const popprofilePopupBox = document.querySelector('.popprofile');
+const popprofileImage = document.querySelector('input[name="popprofile__input-url"]');
+const popprofileForm = document.querySelector('.popprofile__form');
+const popprofileSubmit = document.querySelector('.popprofile__submit');
+const popprofileForms = document.querySelector('.popprofile__overlay');
+  
+  
+popprofileForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const urlValue = popprofileImage.value.trim();
+  popprofilePopupBox.classList.remove('popprofile_active');
+  addCardToContainer({ name: nameValue, link: urlValue });
+  popprofileImage.value = '';
+});
+
