@@ -3,6 +3,7 @@
 // Import necessary classes and functions
 import Card from "../components/Card.js";
 import PortfolioFormHandler from "../components/PopupWithForm.js";
+import PopprofileFormHandler from "../components/Popprofile.js";
 import ImagePopup from "../components/PopupWithImage.js";
 import Profile from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
@@ -16,6 +17,7 @@ export default class Section {
 
     // ImagePopup
     this.portfolioFormHandler = new PortfolioFormHandler();
+    this.popprofileFormHandler = new PopprofileFormHandler();
     this.imagePopup = new ImagePopup();
 
     // Container for Cards

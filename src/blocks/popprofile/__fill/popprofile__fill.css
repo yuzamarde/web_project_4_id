@@ -1,0 +1,15 @@
+.popprofile__fill {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 20px 0;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  
+}
+
+@media screen and (max-width: 320px) {
+
+}

@@ -3,6 +3,7 @@ import stepsSrc from "./images/steps.png";
 import {
     userProfile,
     portfolioFormHandler,
+    popprofileFormHandler,
     imagePopup,
     addCardToContainerFn,
   } from '/src/pages/index.js'; 

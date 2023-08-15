@@ -67,7 +67,7 @@
         <label class="forms__fill">
           <input type="url" class="forms__input" name="form__input-url" id="forms__input-url" placeholder="Image url" required minlength="2"> 
           <span class="forms__input-error forms__input-url-error"></span>
-      </label>
+        </label>
       </fieldset>
       <button class="forms__submit forms__button button" type="submit" name="send">Simpan</button>
     </form>
@@ -81,6 +81,21 @@
       <h2 class="zoom__title">name</h2>
     </div>
     <div class="zoom__overlay"></div>
+  </section>
+
+  <section class="popprofile">
+    <div class="popprofile__overlay"></div>
+    <button class="popprofile__close" type="button"><img src="<%= require('./images/Close.svg')%>" alt="close image"></button>
+    <form class="popprofile__form" name="popprofile__profile" novalidate>
+      <h2 class="popprofile__profile-title">Edit Name</h2>
+      <fieldset class="popprofile__set">
+        <label class="popprofile__fill">
+          <input type="url" class="popprofile__input" name="popprofile__input-url" id="popprofile__input-url" placeholder="Image url" required minlength="2"> 
+          <span class="popprofile__input-error popprofile__input-url-error"></span>
+        </label>
+      </fieldset>
+      <button type="submit" class="popprofile__submit popprofile__button button" name="send">Simpan</button>
+    </form>
   </section>
 
   <footer class="footer">

@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import PortfolioFormHandler from "../components/PopupWithForm.js";
+import PopprofileFormHandler from "../components/Popprofile.js";
 import { container, initialCards } from "../components/Card.js";
 import ImagePopup from "../components/PopupWithImage.js";
 import Profile from '../components/UserInfo.js';
@@ -13,6 +14,7 @@ const userProfile = new Profile();
 
 // ImagePopup
   const portfolioFormHandler = new PortfolioFormHandler();
+  const popprofileFormHandler = new PopprofileFormHandler();
   const imagePopup = new ImagePopup();
 
 //Card
@@ -26,6 +28,7 @@ const userProfile = new Profile();
   export {
     userProfile,
     portfolioFormHandler,
+    popprofileFormHandler,
     imagePopup,
     addCardToContainerFn,
   };
