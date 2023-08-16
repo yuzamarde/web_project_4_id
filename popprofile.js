@@ -102,9 +102,36 @@ const deletePopupImage = document.querySelector(".page");
 const deleteAddButton = document.querySelector('.element__delete');
 const deleteCloseButton = document.querySelector('.delete__close');
 const deletePopupBox = document.querySelector('.delete');
-const deleteImage = document.querySelector('input[name="delete__input-url"]');
 const deleteForm = document.querySelector('.delete__form');
 const deleteSubmit = document.querySelector('.delete__submit');
 const deleteForms = document.querySelector('.delete__overlay');
   
- 
+popprofileAddButton.addEventListener('click', () => {
+  popprofileFormsPopup();
+  popprofilePopupBox.classList.add('popprofile_active');
+});
+
+popprofileCloseButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  popprofilePopupBox.classList.remove('popprofile_active');
+});
+
+popprofileForms.addEventListener('click', (event) => {
+  event.preventDefault();
+  popprofilePopupBox.classList.remove('popprofile_active');
+});
+
+//press esc
+const popprofileFormsPopup = () => {
+  const closePopupForm = () => {
+    popprofilePopupBox.classList.remove('popprofile_active');
+    document.removeEventListener('keydown', handleKeyDown);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Escape') {
+      closePopupForm();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
+};

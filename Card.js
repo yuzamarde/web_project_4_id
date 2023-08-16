@@ -34,15 +34,18 @@ class Card {
     this._cardImage = this._cardElement.querySelector('.element__image');
     this._cardTitle = this._cardElement.querySelector('.element__title');
     this._cardButton = this._cardElement.querySelector('.element__button');
-    // this._deleteButton = this._cardElement.querySelector('.element__delete');
+    this._deletePopup = this._cardElement.querySelector('.element__delete');
     this._deleteButton = this._cardElement.querySelector('.delete__submit');
+    
     this._cardImage.src = this._cardData.link;
     this._cardTitle.innerHTML = this._cardData.name;
 
     this._cardButton.addEventListener('click', this._selectPicture);
     this._cardButton.addEventListener('click', this._activeLike);
     this._cardImage.addEventListener('click', this._openPopup); 
+    this._deletePopup.addEventListener('click', this._popupDelete);
     this._deleteButton.addEventListener('click', this._deleteElement);
+
   }
 
   _getTemplate() {
@@ -64,6 +67,11 @@ class Card {
     popupImageTitle.textContent = this._cardData.name;
     openFormsZoom(popupImage);
     popupImage.classList.add('zoom_active');
+  }
+
+  _popupDelete = () => {
+    openDeletePopup(deletePopupBox);
+    deletePopupBox.classList.add('delete_active');
   }
 
   _deleteElement = () => {

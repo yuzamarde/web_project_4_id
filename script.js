@@ -68,3 +68,12 @@ popprofileForm.addEventListener('submit', function(event) {
   popprofileImage.value = '';
 });
 
+
+  // popprofile change
+  // const deletePopupImage = document.querySelector(".page");
+  // const deleteAddButton = document.querySelector('.element__delete');
+  // const deleteCloseButton = document.querySelector('.delete__close');
+  // const deletePopupBox = document.querySelector('.delete');
+  // const deleteForm = document.querySelector('.delete__form');
+  // const deleteSubmit = document.querySelector('.delete__submit');
+  // const deleteForms = document.querySelector('.delete__overlay');

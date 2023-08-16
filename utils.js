@@ -135,35 +135,45 @@ const openFormsZoom = () => {
 
 
 
-// popprofile change
-popprofileAddButton.addEventListener('click', () => {
-  popprofileFormsPopup();
-  popprofilePopupBox.classList.add('popprofile_active');
+// delete popup change
+
+const deletePopupImage = document.querySelector(".page");
+const deleteAddButton = document.querySelector('.element__delete');
+const deleteCloseButton = document.querySelector('.delete__close');
+const deletePopupBox = document.querySelector('.delete');
+const deleteForm = document.querySelector('.delete__form');
+const deleteSubmit = document.querySelector('.delete__submit');
+const deleteOverlay = document.querySelector('.delete__overlay');
+
+deleteAddButton.addEventListener('click', () => {
+  openDeletePopup();
+  deletePopupBox.classList.add('delete_active');
 });
 
-popprofileCloseButton.addEventListener('click', (event) => {
+deleteCloseButton.addEventListener('click', (event) => {
   event.preventDefault();
-  popprofilePopupBox.classList.remove('popprofile_active');
+  deletePopupBox.classList.remove('delete_active');
 });
 
-popprofileForms.addEventListener('click', (event) => {
+deleteOverlay.addEventListener('click', function(event) {
   event.preventDefault();
-  popprofilePopupBox.classList.remove('popprofile_active');
+  deletePopupBox.classList.remove('delete_active');
 });
+
+
 
 //press esc
-const popprofileFormsPopup = () => {
-  const closePopupForm = () => {
-    popprofilePopupBox.classList.remove('popprofile_active');
+const openDeletePopup = () => {
+  const closedeletePopupForm = () => {
+    deletePopupBox.classList.remove('delete_active');
     document.removeEventListener('keydown', handleKeyDown);
   };
 
   const handleKeyDown = (event) => {
     if (event.key === 'Escape') {
-      closePopupForm();
+      closedeletePopupForm();
     }
   };
   document.addEventListener('keydown', handleKeyDown);
 };
-
 
