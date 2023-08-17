@@ -44,6 +44,7 @@ class Card {
     this._cardButton.addEventListener('click', this._activeLike);
     this._cardImage.addEventListener('click', this._openPopup); 
     this._deletePopup.addEventListener('click', this._popupDelete);
+    this._deleteButton.addEventListener('click', this._selectDelete);
     this._deleteButton.addEventListener('click', this._deleteElement);
 
   }
@@ -69,6 +70,9 @@ class Card {
     popupImage.classList.add('zoom_active');
   }
 
+  _selectDelete = (evt) => {
+    evt.target.classList.add('delete_active');
+  }
   _popupDelete = () => {
     openDeletePopup(deletePopupBox);
     deletePopupBox.classList.add('delete_active');
