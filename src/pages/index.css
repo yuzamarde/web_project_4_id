@@ -1,74 +1,89 @@
-/* vendor */
-@import url(../vendor/normalize.css);
+/* normalize */
+@import url(../vendor/mynormalize.css);
+/* normalize */
 
-/* font */
-@import url(../vendor/font.css);
+/* root */
+@import url(../blocks/root/root.css);
+/* root end */
 
-/* header */
+/* utils */
+@import url(../blocks/utils/utils.css);
+/* utils end */
+
+/*header*/
 @import url(../blocks/header/header.css);
-@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__title/header__title.css);
+/*header end*/
 
-/* page */
-@import url(../blocks/page/page.css);
-
+/* alert */
+@import url(../blocks/alert/alert.css);
+@import url(../blocks/alert/text/alert__text.css);
+/* alert end */
 
 /* profile */
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__add-btn/profile__add-btn.css);
-@import url(../blocks/profile/__edit-btn/profile__edit-btn.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__image/profile__image.css);
-@import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__profile-info/profile__profile-info.css);
-@import url(../blocks/profile/__work/profile__work.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__header/profile__header.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__edit/profile.edit.css);
+@import url(../blocks/profile/__text/profile__text.css);
+@import url(../blocks/profile/__add/profile__add.css);
+@import url(../blocks/profile/__edit-avatar/profile__edit-avatar.css);
+@import url(../blocks/profile/__button-avatar/profile__button-avatar.css);
+/* profile end */
 
-/* elements */
-@import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__button/element__button.css);
-@import url(../blocks/elements/__element/elements__element.css);
-@import url(../blocks/elements/__group/element__group.css);
-@import url(../blocks/elements/__image/element__image.css);
-@import url(../blocks/elements/__title/element__title.css);
-@import url(../blocks/elements/__delete/element__delete.css);
+/* overlay */
+@import url(../blocks/overlay/overlay.css);
+/* overlay end */
 
-/* container */
-@import url(../blocks/container/container.css);
+/* form */
+@import url(../blocks/form/form.css);
+@import url(../blocks/form-add/form-add.css);
+@import url(../blocks/form-edit/form-edit.css);
+@import url(../blocks/form-avatar/form-avatar.css);
+@import url(../blocks/form/__icon/form__icon.css);
+@import url(../blocks/form/__header/form__header.css);
+@import url(../blocks/form/__control/form__control.css);
+@import url(../blocks/form/__name/form__name.css);
+@import url(../blocks/form/__job/form__job.css);
+@import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input/_type_error/form__input_type_error.css);
+@import url(../blocks/form/__input-error/form__input-error.css);
+@import url(../blocks/form/__input-avatar/form__input-avatar.css);
+@import url(../blocks/form/__input-error/_active/form__input-error_active.css);
+@import url(../blocks/form/__button/form__button.css);
+@import url(../blocks/form/__button-avatar/form__button-avatar.css);
+@import url(../blocks/form/__button/_inactive/form__button_inactive.css);
+@import url(../blocks/form-avatar/__title/form-avatar__title.css);
+/* form end */
 
-/* popup */
-@import url(../blocks/popup/popup.css);
-@import url(../blocks/popup/__close/popup__close.css);
-@import url(../blocks/popup/__overlay/popup__overlay.css);
-@import url(../blocks/popup/__profile-title/popup__profile-title.css);
-@import url(../blocks/popup/__submit/popup__submit.css);
-@import url(../blocks/popup/__input/popup__input.css);
-@import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__set/popup__set.css);
-@import url(../blocks/popup/__fill/popup__fill.css);
+/* card */
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__item/card__item.css);
+@import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__icon-delete/card__icon-delete.css);
+@import url(../blocks/card/__main-text/card__main-text.css);
+@import url(../blocks/card/__title/card__title.css);
+@import url(../blocks/card/__likes/card__likes.css);
+@import url(../blocks/card/__icon/card__icon.css);
+@import url(../blocks/card/__likes-text/card__likes-text.css);
+/* card end */
 
-/* forms */
-@import url(../blocks/forms/forms.css);
-@import url(../blocks/forms/__close/forms__close.css);
-@import url(../blocks/forms/__error/forms__error.css);
-@import url(../blocks/forms/__fill/forms__fill.css);
-@import url(../blocks/forms/__form/forms__form.css);
-@import url(../blocks/forms/__input/forms__input.css);
-@import url(../blocks/forms/__overlay/forms__overlay.css);
-@import url(../blocks/forms/__submit/forms__submit.css);
-@import url(../blocks/forms/__title/forms__title.css);
-@import url(../blocks/forms/__set/forms__set.css);
-
-
-/* zoom */
-@import url(../blocks/zoom/zoom.css);
-@import url(../blocks/zoom/__close/zoom__close.css);
-@import url(../blocks/zoom/__content/zoom__content.css);
-@import url(../blocks/zoom/__file/zoom__file.css);
-@import url(../blocks/zoom/__title/zoom__title.css);
-@import url(../blocks/zoom/__overlay/zoom__overlay.css);
-
-
-
+/* popup image */
+@import url(../blocks/pop-up/pop-up.css);
+@import url(../blocks/pop-up/__image/pop-up__image.css);
+@import url(../blocks/pop-up/__icon/pop-up__icon.css);
+@import url(../blocks/pop-up/__title/pop-up__title.css);
+@import url(../blocks/form-confirm-container/form-confirm-container.css);
+@import url(../blocks/form-confirm-container/__icon/form-confirm-container__icon.css);
+@import url(../blocks/form-confirm-container/__title/form-confirm-container__title.css);
+@import url(../blocks/form-confirm-container/__button/form-confirm-container__button.css);
+@import url(../blocks/form-confirm-container/__content/form-confirm-container__content.css);
+/* popup image end */
 
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-
+/* footer end */

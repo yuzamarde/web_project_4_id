@@ -1,52 +1,48 @@
-// Popup.js
 export default class Popup {
-  constructor() {
-    this.editPopupBox = document.querySelector('.popup');
-    this.popupOverlay = document.querySelector('.popup__overlay');
-    this.closePopupButton = document.querySelector('.popup__close');
-    this.errorElements = this.editPopupBox.querySelectorAll('.popup__input-error');
-    this.errorInputElements = this.editPopupBox.querySelectorAll('.popup__input');
-    this.errorBottomInactive = this.editPopupBox.querySelectorAll('.popup__submit');
+ constructor(popupSelector) {
+  this._popup = popupSelector;
+  this._overlay = document.querySelector('.overlay');
+ }
 
-    this.closePopupButton.addEventListener('click', () => this.closePopup());
-    this.popupOverlay.addEventListener('click', () => this.closePopup());
+ open() {
+  this._overlay.classList.add('block');
+  this._popup.classList.add('block');
+ }
+
+ close() {
+  this._popup.classList.remove('block');
+  this._popup.classList.add('close');
+  this._overlay.classList.remove('block');
+  this._overlay.classList.add('close');
+
+  setTimeout(() => {
+   this._popup.classList.remove('close');
+   this._overlay.classList.remove('close');
+  }, 300);
+ }
+
+ _handleEscClose(event) {
+  const keyCode = 27;
+  if (event.keyCode === keyCode) {
+   this.close();
   }
+ }
 
-  openPopup() {
-    this.editPopupBox.classList.add('popup_active');
-    this.addEscCloseListener();
-  }
+ setEventListeners() {
+  this._popup.addEventListener('click', (event) => {
+   if (event.target.classList.contains('pop-up__icon') || event.target.classList.contains('form__icon') || event.target.classList.contains('pop-up__icon-confirm')) {
+    this.close();
+   }
+  });
 
-  closePopup() {
-    this.editPopupBox.classList.remove('popup_active');
-    this.removeEscCloseListener();
-    this.clearErrors();
-  }
+  document.addEventListener('keydown', (event) => {
+   this._handleEscClose(event);
+  });
 
-  addEscCloseListener() {
-    this.handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        this.closePopup();
-      }
-    };
-    document.addEventListener('keydown', this.handleKeyDown);
-  }
-
-  removeEscCloseListener() {
-    document.removeEventListener('keydown', this.handleKeyDown);
-  }
-
-  clearErrors() {
-    this.errorElements.forEach((errorElement) => {
-      errorElement.classList.remove('popup__input-error_active');
-    });
-
-    this.errorInputElements.forEach((errorInputElement) => {
-      errorInputElement.classList.remove('popup__input_type_error');
-    });
-
-    this.errorBottomInactive.forEach((errorBottomInactive) => {
-      errorBottomInactive.classList.remove('popup__submit_inactive');
-    });
-  }
+  this._overlay.addEventListener('click', (event) => {
+   if (event.target.classList.contains('overlay')) {
+    this.close();
+   }
+  });
+ }
 }

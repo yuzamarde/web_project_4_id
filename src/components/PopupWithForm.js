@@ -1,72 +1,45 @@
-export const page = document.querySelector(".page");
-export const portfolioAddButton = document.querySelector('.profile__add-btn');
-export const portfolioCloseButton = document.querySelector('.forms__close');
-export const portfolioPopupBox = document.querySelector('.forms');
-export const portfolioImage = document.querySelector('input[name="form__input-url"]');
-export const portfolioTitle = document.querySelector('input[name="form__input-name"]');
-export const portfolioForm = document.querySelector('.forms__form');
-export const submitButton = document.querySelector('.forms__submit');
-export const popupForms = document.querySelector('.forms__overlay');
+import Popup from './popup';
 
-export default class PortfolioFormHandler {
-    constructor(addCardToContainerFn) {
-      this.popupBox = document.querySelector('.forms');
-      this.imageElement = document.querySelector('input[name="form__input-url"]');
-      this.titleElement = document.querySelector('input[name="form__input-name"]');
-      this.formElement = document.querySelector('.forms__form');
-      this.addCardToContainerFn = addCardToContainerFn;
-  
-      this.formElement.addEventListener('submit', this.handleSubmit.bind(this));
-      this.initEventListeners();
-    }
-  
-    // Initialize event listeners
-    initEventListeners() {
-      document.querySelector('.profile__add-btn').addEventListener('click', () => {
-        this.openPopupBox();
-      });
-  
-      document.querySelector('.forms__close').addEventListener('click', (event) => {
-        event.preventDefault();
-        this.closePopupBox();
-      });
-  
-      document.querySelector('.forms__overlay').addEventListener('click', () => {
-        this.closePopupBox();
-      });
-  
-      // Prevent clicks inside the form from closing the popup
-      this.formElement.addEventListener('click', (event) => {
-        event.stopPropagation();
-      });
+export default class PopupWithForm extends Popup {
+ constructor(popupSelector, callback) {
+  super(popupSelector);
+  this._callback = callback;
+  this._formSelector = popupSelector.querySelector('form');
+  this._submitButtons = this._formSelector.querySelectorAll('.form__button');
+  this._buttonValues = Array.from(this._submitButtons).map((button) => button.textContent);
+ }
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          this.closePopupBox();
-        }
-      });
-    }
-  
-    // Open the popup
-    openPopupBox() {
-      this.popupBox.classList.add('forms_active');
-    }
-  
-    // Close the popup
-    closePopupBox() {
-      this.popupBox.classList.remove('forms_active');
-    }
-
-  
-    // Handle form submission
-    handleSubmit(event) {
-      event.preventDefault();
-      const urlValue = this.imageElement.value.trim();
-      const nameValue = this.titleElement.value.trim();
-      this.closePopupBox();
-      this.addCardToContainerFn({ name: nameValue, link: urlValue });
-      this.imageElement.value = '';
-      this.titleElement.value = '';
-    }
+ _getInputValues() {
+  const formData = new FormData(this._formSelector);
+  const inputValues = {};
+  for (const [key, value] of formData.entries()) {
+   inputValues[key] = value;
   }
-  
+  return inputValues;
+ }
+
+ showPatchStatus(status) {
+  this._submitButtons.forEach((button, index) => {
+   if (status) {
+//     button.textContent = 'Menyimpan...';
+//    } else {
+    button.textContent = this._buttonValues[index];
+   }
+  });
+
+  return this;
+ }
+
+ setEventListeners() {
+  super.setEventListeners();
+  this._formSelector.addEventListener('submit', (event) => {
+   event.preventDefault();
+   this._callback(this._getInputValues());
+  });
+ }
+
+ close() {
+  super.close();
+  this._formSelector.reset();
+ }
+}

@@ -1,92 +1,82 @@
-import PopupWithImage from './PopupWithImage.js';
-export const template = document.querySelector('.elements');
-export const container = document.querySelector('.container');
-export const initialCards = [
-  {
-    name: "Lembah Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
-  },
-  {
-    name: "Danau Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
-  },
-  {
-    name: "Pegunungan Gundul",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
-  },
-  {
-    name: "Gunung Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
-  },
-  {
-    name: "Taman Nasional Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
+class Card {
+ constructor(card, userId, handleCardClick, handleLikeClick, handleDeleteClik) {
+  this._card = card;
+  this._name = this._card.name;
+  this._link = this._card.link;
+  this._likes = this._card.likes;
+  this._id = this._card._id;
+  this._ownerId = this._card.owner._id;
+  this._userId = userId;
+  this._handleCardClick = handleCardClick;
+  this._handleLikeClick = handleLikeClick;
+  this._handleDeleteClik = handleDeleteClik;
+  this._cardTemplate = document.querySelector('#cardTemplate').content.querySelector('.card__item');
+  this._cardElement = this._cardTemplate.cloneNode(true);
+  this._cardLikes = this._cardElement.querySelector('.card__likes-text');
+ }
+
+ generateCard() {
+  this._setEventListeners();
+  this._cardElement.querySelector('.card__image').setAttribute('src', this._link);
+  this._cardElement.querySelector('.card__image').setAttribute('alt', this._name);
+  this._cardElement.querySelector('.card__title').textContent = this._name;
+  this._cardElement.querySelector('.card__title').setAttribute('title', this._name);
+  this._cardElement.querySelector('.card__likes-text').textContent = this._likes.length;
+  if (this._isLiked()) {
+   this._cardElement.querySelector('.card__icon').classList.toggle('toggle');
   }
-];
+  this._deleteButton = this._cardElement.querySelector('.card__icon-delete');
 
-export default class Card {
-  constructor(cardData, imagePopup) {
-      this._cardData = cardData;
-      this._cardElement = this._getTemplate();
-      this._cardImage = this._cardElement.querySelector('.element__image');
-      this._cardTitle = this._cardElement.querySelector('.element__title');
-      this._cardButton = this._cardElement.querySelector('.element__button');
-      this._deleteButton = this._cardElement.querySelector('.element__delete');
-  
-      this._setCardContent();
-  
-      this._cardButton.addEventListener('click', this._selectPicture);
-      this._cardButton.addEventListener('click', this._activeLike);
-      this._cardImage.addEventListener('click', this._openPopup); 
-      this._deleteButton.addEventListener('click', this._deleteElement);
-    }
-  
-    _getTemplate() {
-      const clone = template.content.cloneNode(true);
-      return clone.querySelector('.element');
-    }
-
-    _setCardContent() {
-      this._cardImage.src = this._cardData.link;
-      this._setCardTitle(this._cardData.name);
-    }
-  
-    _setCardTitle(title) {
-      this._cardTitle.textContent = title;
-    }
-  
-    _selectPicture = () => {
-      const pictureName = this._cardData.name;
-      console.log(pictureName);
-    }
-  
-    _activeLike = (evt) => {
-      evt.target.classList.toggle('element__button-active');
-    }
-  
-    _openPopup() {
-      if (!this._imagePopup) {
-        this._imagePopup = new PopupWithImage();
-      }
-
-    }
-  
-    _deleteElement = () => {
-      this._cardElement.remove();
-    }
-  
-    generateCard() {
-      return this._cardElement;
-    }
+  if (!(this._ownerId === this._userId)) {
+   this._deleteButton.classList.add('card__icon-delete_hidden');
   }
-  
-   // Create and add cards to the container using the Card class
-   initialCards.forEach(cardData => {
-    const newCard = new Card(cardData);
-    container.appendChild(newCard.generateCard());
+  return this._cardElement;
+ }
+
+ _handleLikeCard() {
+  const isLiked = this._isLiked();
+  this._cardElement.querySelector('.card__icon').classList.toggle('toggle');
+  this._handleLikeClick(this._card, this._id, isLiked);
+  if (!isLiked) {
+   this._likes.push({
+    _id: this._userId,
+    name: this._card.owner.name,
+   });
+   this._cardLikes.textContent = this._likes.length;
+  } else {
+   const index = this._likes.findIndex((like) => like._id === this._userId);
+   if (index !== -1) {
+    this._likes.splice(index, 1);
+    console.log(this._likes);
+    this._cardLikes.textContent = this._likes.length;
+   }
+  }
+ }
+
+ _isLiked() {
+  for (let i = 0; i < this._likes.length; i++) {
+   if (this._likes[i]) {
+    if (this._likes[i]._id === this._userId) {
+     return true;
+    }
+   }
+  }
+  return false;
+ }
+
+ _setEventListeners() {
+  this._cardElement.addEventListener('click', (event) => {
+   if (event.target.classList.contains('card__icon-delete')) {
+    this._handleDeleteClik(this._cardElement, this._id, this._name);
+   } else if (event.target.classList.contains('card__icon')) {
+    this._handleLikeCard();
+   } else if (event.target.classList.contains('card__image')) {
+    this._handleCardClick({ name: this._name, link: this._link });
+   } else {
+    return;
+   }
   });
-  
+ }
+}
+
+export { Card };
